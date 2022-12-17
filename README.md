@@ -1484,9 +1484,21 @@ We also performed regular testing of our disaster recovery processes to ensure t
 </details>
 
 <details>
-<summary><b>Which distribution would you select for running a major web server? ***</b></summary><br>
+<summary><b>Which distribution would you select for running a major web server? </b></summary><br>
 
-To be completed.
+There are many Linux distributions that are suitable for running a major web server. When selecting a distribution for this purpose, some important factors to consider include the stability and reliability of the distribution, the performance of the distribution, the security features of the distribution, and the availability of software packages and updates.
+
+Some popular Linux distributions that are commonly used for running major web servers include:
+
+- **Red Hat Enterprise Linux (RHEL)**: RHEL is a stable and reliable distribution that is widely used in enterprise environments. It has a strong focus on security and includes a range of features to help secure web servers. It is also well-suited for running applications that require a high level of performance, such as web servers.
+
+- **Ubuntu**: Ubuntu is a popular distribution that is known for its ease of use and wide range of software packages. It is well-suited for running web servers and is often used in cloud environments.
+
+- **Debian**: Debian is a stable and reliable distribution that is known for its long support cycles and extensive software repository. It is a good choice for running web servers, particularly in environments where stability and reliability are important.
+
+- **CentOS**: CentOS is a distribution that is based on RHEL and is known for its stability and reliability. It is often used in enterprise environments and is well-suited for running web servers.
+
+Ultimately, the best distribution for running a major web server will depend on the specific needs and requirements of the environment. It is important to carefully evaluate the different options and choose a distribution that meets the needs of the server and the applications that it will be running.
 
 </details>
 
@@ -1513,9 +1525,22 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How and why Linux daemons drop privileges? Why some daemons need root permissions to start? Explain. ***</b></summary>
+<summary><b>How and why Linux daemons drop privileges? Why some daemons need root permissions to start? Explain.2</b></summary>
 
-To be completed.
+Linux daemons are processes that run in the background and perform various tasks or services on the system. In many cases, these daemons are started at boot time and continue to run until the system is shut down.
+
+Daemons often run with special privileges, such as the ability to access system resources or perform tasks that require root access. However, it is generally a best practice for daemons to drop these privileges as soon as possible after they start, in order to reduce the potential for security vulnerabilities.
+
+There are several reasons why Linux daemons might drop privileges after they start:
+
+1. **Security**: One of the main reasons for dropping privileges is to reduce the potential for security vulnerabilities. If a daemon runs with elevated privileges, it is more likely to be targeted by attackers, who may try to exploit vulnerabilities in the daemon to gain unauthorized access to the system. By dropping privileges, the daemon reduces its attack surface and makes it less likely that an attacker will be able to compromise the system.
+
+2. **Performance**: Running a daemon with elevated privileges can also impact performance, as the daemon may have access to resources that it does not need and may be able to consume more resources than necessary. By dropping privileges, the daemon can be more efficient and use resources more effectively.
+
+3. **Isolation**: In some cases, daemons may be designed to run in isolated environments, such as containers or virtual machines. In these cases, it is important for the daemon to drop privileges in order to ensure that it is isolated from the rest of the system and cannot interfere with other processes or resources.
+
+Some daemons may need root permissions to start in order to perform certain tasks or access certain resources. For example, a daemon that listens on a privileged network port (such as port 80 for HTTP traffic) may need root permissions to bind to the port. In these cases, it is important for the daemon to drop privileges as soon as possible after it starts in order to reduce the potential for security vulnerabilities.
+
 
 </details>
 
@@ -1590,9 +1615,15 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How the Linux kernel creates, manages and deletes the processes in the system? ***</b></summary><br>
+<summary><b>How the Linux kernel creates, manages and deletes the processes in the system? </b></summary><br>
 
-To be completed.
+The Linux kernel is responsible for creating, managing, and deleting processes in the system. Here is a general overview of how this process works:
+
+1. **Process creation**: When a new process is created in the Linux system, the kernel assigns it a unique process ID (PID) and creates a new task structure to represent the process. The task structure contains information about the process, including its PID, priority, memory usage, and other data. The kernel also assigns the process to a CPU and allocates memory for the process.
+
+2. **Process management**: The kernel is responsible for managing the scheduling and execution of processes in the system. It uses various scheduling algorithms to determine which processes should run on which CPUs, and it allocates CPU time to each process based on its priority and other factors. The kernel also handles resource management, ensuring that processes have access to the memory, I/O resources, and other resources they need to function.
+
+3. **Process deletion**: When a process is no longer needed or has completed its task, the kernel is responsible for deleting it and releasing any resources that it was using. This process is known as process termination. The kernel sends a termination signal to the process, which causes it to stop running and release any resources it was using. The kernel then removes the task structure for the process and releases any memory or other resources that were allocated to the process.
 
 Useful resources:
 
@@ -1601,9 +1632,33 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Explain the selected information you can see in <code>top</code> and <code>htop</code>. How to diagnose load, high user time and out-of-memory problems with these tools? ***</b></summary><br>
+<summary><b>Explain the selected information you can see in <code>top</code> and <code>htop</code>. How to diagnose load, high user time and out-of-memory problems with these tools? </b></summary><br>
 
-To be completed.
+Here is a list of some of the information that you can see in htop when running the command:
+
+Process ID (PID): The PID is a unique identifier assigned to each process by the kernel. It can be used to identify a specific process and to manipulate it using command-line tools.
+
+CPU usage: htop displays the percentage of CPU time that each process is using. This can be useful for identifying processes that are consuming a large amount of CPU resources.
+
+Memory usage: htop displays the amount of memory that each process is using. This can be useful for identifying processes that are consuming a large amount of memory and for diagnosing out-of-memory problems.
+
+Virtual memory size: htop displays the total amount of virtual memory that each process is using. This includes both memory that is currently in use and memory that has been swapped out to disk.
+
+Resident memory size: htop displays the amount of resident memory that each process is using. This is the portion of a process's memory that is currently resident in physical memory.
+
+User time: htop displays the amount of time that each process has spent executing instructions in user mode. This can be useful for identifying processes that are consuming a large amount of user time and for diagnosing performance problems.
+
+System time: htop displays the amount of time that each process has spent executing instructions in kernel mode. This can be useful for identifying processes that are consuming a large amount of system time and for diagnosing performance problems.
+
+To diagnose load, high user time, and out-of-memory problems using htop, you can also use the following techniques:
+
+Using the CPU meter: htop includes a CPU meter at the top of the screen that shows the overall CPU usage of the system. If the CPU meter is consistently high, this could indicate a high load on the system. You can use the process list to identify the processes that are consuming the most CPU resources and take steps to address the issue.
+
+Using the memory meter: htop includes a memory meter at the top of the screen that shows the overall memory usage of the system. If the memory meter is consistently high and the system is using a lot of swap space, this could indicate an out-of-memory problem. You can use the process list to identify the processes that are consuming the most memory and take steps to address the issue.
+
+Using the search function: htop includes a search function that allows you to search for a specific process by name or PID. This can be useful for quickly finding a specific process and examining its resource usage.
+
+It is important to note that htop is just one tool that can be used to diagnose load, high user time, and out-of-memory problems. There are many other tools available, such as top, vmstat, mpstat, and sar, that can also be used to diagnose these issues.
 
 Useful resources:
 
@@ -1652,10 +1707,18 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How to permanently set <code>$PATH</code> on Linux/Unix? Why is this variable so important? ***</b></summary>
+<summary><b>How to permanently set <code>$PATH</code> on Linux/Unix? Why is this variable so important? </b></summary>
 
-To be completed.
+The $PATH variable is a system-wide environment variable in Linux and Unix-like operating systems that specifies the directories in which the system should search for executable files. This is important because it allows you to run executables from any directory without having to specify the full path to the executable each time.
 
+To permanently set the $PATH variable on Linux or Unix, you can add the desired directories to the $PATH variable in the appropriate configuration file for your shell. The exact procedure for doing this will depend on the type of shell you are using. Here are the steps for some common shells:
+
+**Bash**: To set the $PATH variable in Bash, you can add the desired directories to the PATH variable in the ~/.bashrc file in your home directory. For example, to add the /usr/local/bin and /usr/local/sbin directories to your $PATH, you could add the following lines to your ~/.bashrc file:
+```bash
+PATH=$PATH:/usr/local/bin:/usr/local/sbin
+export PATH
+
+```
 </details>
 
 <details>
@@ -1923,9 +1986,21 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How to make high availability of web application? ***</b></summary>
+<summary><b>How to make high availability of web application? </b></summary>
 
-To be completed.
+There are several strategies that can be used to make a web application highly available, which means that it is able to handle a large number of users and requests without experiencing downtime or other failures. Some strategies for achieving high availability for a web application include:
+
+1. Load balancing: One way to make a web application highly available is to use load balancing to distribute incoming traffic across multiple servers. This allows the application to handle a larger number of users and requests without becoming overloaded.
+
+2. Redundancy: Another way to achieve high availability is to implement redundancy in various components of the application, such as the database, web servers, and other infrastructure. This ensures that if one component fails, the others can take over and keep the application running.
+
+3. Monitoring and alerting: To ensure that a web application remains highly available, it is important to implement monitoring and alerting systems to detect and alert when there are problems with the application. This allows you to quickly identify and fix any issues that might cause downtime.
+
+4. Backup and recovery: To further ensure the availability of a web application, it is important to have backup and recovery systems in place to quickly restore the application in the event of a failure or disaster.
+
+5. Scalability: Scalability is another key factor in achieving high availability for a web application. By designing the application to scale horizontally, you can ensure that it can handle an increasing number of users and requests without becoming overloaded.
+
+By implementing these and other strategies, you can make your web application highly available and ensure that it is able to handle a large number of users and requests without experiencing downtime or other failures.
 
 </details>
 
@@ -2021,7 +2096,18 @@ Useful resources:
 <details>
 <summary><b>What steps will be taken by init when you run <code>telinit 1</code> from run level 3? What will be the final result of this? If you use <code>telinit 6</code> instead of <code>reboot</code> command your server will be restarted? ***</b></summary><br>
 
-To be completed.
+The telinit command is used to change the system's runlevel in a Linux or Unix-like operating system. When you run the command telinit 1 from runlevel 3, the following steps will be taken:
+
+The system will stop all processes that are not needed in runlevel 1.
+The system will start all processes that are needed in runlevel 1.
+The system will switch to runlevel 1.
+The final result of running telinit 1 from runlevel 3 will be that the system will switch to runlevel 1 and start the processes that are needed in that runlevel.
+
+It is important to note that the specific processes that are started and stopped when changing runlevels will depend on the configuration of the system.
+
+As for using telinit 6 instead of the reboot command to restart the server, it will depend on the specific configuration of the system. On some systems, telinit 6 may be equivalent to the reboot command and will cause the system to restart. On other systems, telinit 6 may not have any effect or may cause the system to switch to runlevel 6 without restarting. It is recommended to use the reboot command to restart the system, as it is more portable and reliable across different systems.
+
+  
 
 Useful resources:
 
@@ -2091,9 +2177,21 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Describe your data backup process. How often should you test your backups? ***</b></summary><br>
+<summary><b>Describe your data backup process. How often should you test your backups? </b></summary><br>
 
-To be completed.
+A data backup process is a set of procedures and systems that are used to protect and preserve the data on a computer or other device. A good data backup process should include the following elements:
+
+Defining the data to be backed up: The first step in creating a data backup process is to define the data that needs to be backed up. This should include all important files, documents, and other data that is critical to the operation of the system.
+
+Choosing a backup destination: The next step is to choose a destination for the backups. This could be an external hard drive, a network storage device, or a cloud storage service.
+
+Scheduling regular backups: The data backup process should include a schedule for regularly backing up the data. This could be daily, weekly, or monthly, depending on the needs of the system.
+
+Creating a backup plan: The backup process should include a plan for how to handle different types of data and how often they should be backed up. For example, some data may need to be backed up more frequently than others.
+
+Testing the backups: It is important to regularly test the backups to ensure that they are being created and stored correctly. This could involve restoring the backups to a test environment and verifying that all of the data is present and readable.
+
+It is generally recommended to test backups on a regular basis, such as monthly or quarterly. This will help ensure that the backups are reliable and can be restored if needed. It is also important to test the backups after making any significant changes to the system, such as installing new software or hardware. This will help ensure that the backups are still working correctly and that all important data is being backed up.
 
 </details>
 
@@ -2269,9 +2367,21 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What is the proper way to upgrade/update a system in production? Do you automate these processes? Do you set downtime for them? Write recommendations. ***</b></summary><br>
+<summary><b>What is the proper way to upgrade/update a system in production? Do you automate these processes? Do you set downtime for them? Write recommendations.</b></summary><br>
 
-To be completed.
+Upgrading or updating a system in production can be a complex process that requires careful planning and execution to ensure that the system remains stable and available to users. Here are some recommendations for properly upgrading or updating a system in production:
+
+Plan ahead: Before upgrading or updating a system, it is important to carefully plan the process. This should include identifying the specific components that will be upgraded or updated, determining the appropriate schedule for the upgrade or update, and identifying any potential risks or impacts on the system or users.
+
+Test the upgrades or updates: It is important to thoroughly test the upgrades or updates in a staging or test environment before implementing them in production. This will help ensure that the changes do not cause any issues or disruptions to the system.
+
+Automate the process: Automating the upgrade or update process can help reduce the risk of errors and downtime. This could involve using tools like configuration management software or deployment pipelines to automate the process of applying the upgrades or updates.
+
+Set downtime: Depending on the complexity and impact of the upgrades or updates, it may be necessary to set downtime for the system. This could involve scheduling a maintenance window or using techniques like rolling deployments to minimize the impact on users.
+
+Monitor and review: After implementing the upgrades or updates, it is important to monitor the system closely to ensure that everything is working correctly. This could involve monitoring key performance indicators and reviewing logs to identify any issues or problems.
+
+By following these recommendations, you can ensure that the process of upgrading or updating a system in production is smooth and successful, minimizing the risk of downtime or other disruptions to the system.
 
 </details>
 
@@ -2346,9 +2456,15 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>When would you use access control lists instead of or in conjunction with the <code>chmod</code> command? ***</b></summary><br>
+<summary><b>When would you use access control lists instead of or in conjunction with the <code>chmod</code> command? </b></summary><br>
 
-To be completed.
+Access control lists (ACLs) are a system-level mechanism that is used to control access to resources in a Linux or Unix-like operating system. ACLs can be used instead of or in conjunction with the chmod command to control access to files and directories.
+
+The chmod command is used to change the permissions of a file or directory, allowing users to read, write, or execute the file. However, chmod only allows you to set permissions for the owner of the file, the group that the file belongs to, and others (referred to as "user", "group", and "other" permissions).
+
+ACLs, on the other hand, allow you to set permissions for specific users or groups, beyond the owner, group, and others categories. This can be useful in cases where you want to grant specific users or groups access to a file or directory that they would not normally have access to based on the traditional user, group, and other permissions.
+
+In general, it is recommended to use ACLs in conjunction with the chmod command when you need to grant specific users or groups access to a file or directory that they would not normally have based on the traditional user, group, and other permissions. This can provide a more fine-grained level of control over access to resources on the system.
 
 </details>
 
@@ -2440,9 +2556,17 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Why do most distros use ext4, as opposed to XFS or other filesystems? Why are there so many of them? ***</b></summary><br>
+<summary><b>Why do most distros use ext4, as opposed to XFS or other filesystems? Why are there so many of them? </b></summary><br>
 
-To be completed.
+Most Linux distributions use the ext4 file system (short for "extended file system version 4") as the default file system for storing files and data on the system. There are several reasons for this:
+
+Compatibility: Ext4 is a widely-used file system that is compatible with a wide range of hardware and software platforms. This makes it a good choice for use as the default file system in a Linux distribution.
+
+Performance: Ext4 has been optimized for performance and is able to handle large files and high levels of concurrency without experiencing significant slowdowns. This makes it well-suited for use as the default file system in a Linux distribution.
+
+Scalability: Ext4 is designed to scale well as the amount of data stored on the file system increases. This makes it a good choice for use as the default file system in a Linux distribution.
+
+There are many other file systems available for use in Linux, including XFS and others. The reason there are so many file systems available is that different file systems are optimized for different types of workloads and environments. For example, some file systems are better suited for handling large files, while others are better suited for handling many small files. Some file systems are more reliable, while others are faster. By providing a wide range of file system options, Linux allows users to choose the file system that is best suited for their specific needs and requirements.
 
 </details>
 
@@ -2780,8 +2904,38 @@ Useful resources:
 <details>
 <summary><b>Configure a virtual interface on your workstation. ***</b></summary><br>
 
-To be completed.
+To configure a virtual interface on a workstation running a Linux or Unix-like operating system, you can use the ip command with the addr add subcommand. Here is an example of how to configure a virtual interface with the IP address 192.168.1.100 and the netmask 255.255.255.0 on the eth0 interface:
+  
+```bash
+sudo ip addr add 192.168.1.100/24 dev eth0
+```
 
+This will create a virtual interface on the eth0 interface with the specified IP address and netmask. You can also specify a name for the virtual interface using the label option, like this:
+ 
+ ```bash
+ sudo ip addr add 192.168.1.100/24 dev eth0 label eth0:1
+ ```
+ This will create a virtual interface named eth0:1 on the eth0 interface with the specified IP address and netmask.
+
+To verify that the virtual interface has been created, you can use the ip command with the addr subcommand:
+
+```bash
+ip addr
+```
+
+This will display a list of all of the interfaces on the system, including the newly-created virtual interface.  
+  
+There are several reasons why it can be useful to configure a virtual interface on a workstation:
+
+Network segregation: Virtual interfaces can be used to create multiple isolated networks on a single physical interface. This can be useful for segregating different types of traffic or for creating separate networks for different groups or users.
+
+Load balancing: Virtual interfaces can be used to distribute traffic across multiple interfaces, helping to balance the load on the system. This can be useful for improving performance or for handling large amounts of traffic.
+
+Multihoming: Virtual interfaces can be used to provide multiple IP addresses for a single system, allowing it to be connected to multiple networks or to have multiple connections to the same network. This can be useful for improving connectivity and reliability.
+
+Virtualization: Virtual interfaces can be used to create virtualized environments, allowing multiple instances of an operating system to run on a single physical system. This can be useful for testing, development, or other purposes.
+  
+It is important to note that the specific steps for configuring a virtual interface may vary depending on the specific Linux or Unix-like operating system that you are using. Consult the documentation for your operating system for more detailed instructions.
 </details>
 
 <details>
@@ -2812,14 +2966,44 @@ If domain not resolved it's probably problem with DNS servers.
 <details>
 <summary><b>Load balancing can dramatically impact server performance. Discuss several load balancing mechanisms. ***</b></summary><br>
 
-To be completed.
+Load balancing can have a significant impact on server performance for several reasons:
+
+Improved performance: By distributing incoming traffic among multiple servers or resources, load balancing can help improve the overall performance of the system. This is because the load is distributed among multiple servers, rather than being concentrated on a single server. This can help reduce the risk of a single server becoming overloaded and can improve the overall response time of the system.
+
+Improved availability: Load balancing can also help improve the availability of the system by distributing the load among multiple servers or resources. If one server or resource becomes unavailable, the load balancer can redirect traffic to the other servers or resources, helping to ensure that the system remains available to users.
+
+Scalability: Load balancing can also help improve the scalability of the system by allowing it to handle increased traffic without experiencing a significant decrease in performance. This is because the load balancer can automatically distribute the increased traffic among multiple servers or resources, helping to ensure that the system can continue to perform well as the traffic increases.
+
+There are several load balancing mechanisms that can be used to achieve this:
+
+DNS load balancing: DNS load balancing involves using the Domain Name System (DNS) to distribute traffic among multiple servers or resources. This is done by creating multiple DNS records for a single domain name, each pointing to a different server or resource. When a client makes a request to the domain name, the DNS server responds with the IP address of one of the servers or resources, and the client is redirected to that server.
+
+Hardware load balancers: Hardware load balancers are specialized devices that are designed to distribute traffic among multiple servers or resources. These devices typically use a variety of algorithms to determine how to distribute the traffic and can be configured to optimize performance and availability.
+
+Software load balancers: Software load balancers are programs that are installed on servers or other devices and are used to distribute traffic among multiple servers or resources. These load balancers can be configured to use various algorithms and strategies to distribute the traffic and can be used to optimize performance and availability.
+
+Proxy servers: Proxy servers are servers that act as intermediaries between clients and other servers or resources. They can be used to distribute traffic among multiple servers or resources by routing requests from clients to the appropriate server or resource.
 
 </details>
 
 <details>
 <summary><b>List examples of network troubleshooting tools that can degrade during DNS issues. ***</b></summary><br>
 
-To be completed.
+There are several network troubleshooting tools that can be impacted by DNS issues, including:
+
+ping: The ping command is a utility that is used to test the connectivity between two devices on a network. If DNS issues are causing problems with connectivity, the ping command may not be able to resolve the hostname of the destination device, resulting in errors or failures.
+
+traceroute: The traceroute command is a utility that is used to trace the path that network packets take between two devices on a network. If DNS issues are causing problems with connectivity, the traceroute command may not be able to resolve the hostname of the destination device, resulting in errors or failures.
+
+nslookup: The nslookup command is a utility that is used to query the DNS server for information about a domain name or IP address. If DNS issues are causing problems with connectivity, the nslookup command may not be able to resolve the hostname or IP address, resulting in errors or failures.
+
+dig: The dig command is a utility that is used to query the DNS server for information about a domain name or IP address. If DNS issues are causing problems with connectivity, the dig command may not be able to resolve the hostname or IP address, resulting in errors or failures.
+
+host: The host command is a utility that is used to query the DNS server for information about a domain name or IP address. If DNS issues are causing problems with connectivity, the host command may not be able to resolve the hostname or IP address, resulting in errors or failures.
+
+Overall, DNS issues can impact the performance and reliability of several network troubleshooting tools, making it more difficult to identify and resolve connectivity problems on the network.
+
+
 
 </details>
 
@@ -2908,7 +3092,17 @@ Useful resources:
 <details>
 <summary><b>Which, in your opinion, are the 5 most important OpenSSH parameters that improve the security? ***</b></summary><br>
 
-To be completed.
+There are several OpenSSH parameters that can be used to improve the security of a system. Here are five that are particularly important:
+
+PermitRootLogin: This parameter controls whether or not root login is allowed over SSH. It is generally recommended to disable root login over SSH and to use a regular user account with sudo privileges instead.
+
+PasswordAuthentication: This parameter controls whether or not password authentication is allowed over SSH. It is generally recommended to disable password authentication and to use key-based authentication instead, as this is more secure.
+
+PubkeyAuthentication: This parameter controls whether or not public key authentication is allowed over SSH. It is generally recommended to enable public key authentication, as this is more secure than password authentication.
+
+UsePAM: This parameter controls whether or not the Pluggable Authentication Modules (PAM) system is used to authenticate SSH users. It is generally recommended to enable the use of PAM, as this allows for more flexible and secure authentication methods.
+
+PermitEmptyPasswords: This parameter controls whether or not empty passwords are allowed for SSH users. It is generally recommended to disable the use of empty passwords, as this can increase the security of the system.
 
 Useful resources:
 
@@ -3341,14 +3535,30 @@ Abiding by a set of standards set by a government/Independent party/organisation
 <details>
 <summary><b>Explain the current architecture you’re responsible for and point out where it’s scalable or fault-tolerant. ***</b></summary><br>
 
-To be completed.
+Currently, I am responsible for the architecture of a distributed web application that serves millions of users worldwide. The architecture consists of a front-end layer consisting of multiple web servers that are load balanced using a hardware load balancer. The web servers are running the Nginx web server software and are configured to serve static content and reverse proxy requests to the back-end application servers.
+
+The back-end layer consists of a cluster of application servers that are running the PHP application code and a database cluster that is made up of multiple MariaDB servers configured in a master-slave replication setup. The application servers and database servers are connected via a private network and communicate using the MySQL protocol.
+
+One of the key features of the architecture is its scalability. We have designed the architecture to be able to scale horizontally, meaning that we can easily add additional web servers, application servers, and database servers as needed to handle increased traffic or demand. We have also implemented automatic scaling mechanisms using tools such as Kubernetes and AWS Auto Scaling, which allow the system to automatically add or remove resources based on real-time usage patterns.
+
+In terms of fault tolerance, we have implemented several measures to ensure that the system remains available even if one or more components fail. For example, we have implemented redundant hardware and network infrastructure using technologies such as load balancers, virtual private clouds (VPCs), and multiple availability zones. We also have multiple layers of failover and backup systems in place, such as database replication and backup scripts that run regularly to ensure that we have up-to-date backups of the data. Additionally, we have robust monitoring and alerting systems in place using tools such as Nagios and PagerDuty, which help us quickly identify and resolve any issues that may arise.
+
+Overall, I believe that the current architecture is well-suited to support the business needs and is both scalable and fault-tolerant. We have implemented a number of measures to ensure that the system is able to handle high levels of traffic and remain stable and available to users.
 
 </details>
 
 <details>
 <summary><b>Tell me how code gets deployed in your current production. ***</b></summary><br>
 
-To be completed.
+"In our production environment, we use Git for version control and have a continuous integration (CI) tool called Jenkins set up to automatically build and test code changes. Whenever a developer pushes code changes to the repository, Jenkins kicks off a build and runs a series of tests to ensure that the code is working as expected.
+
+Once the build and tests pass, the code is deployed to a staging environment where it undergoes additional testing by our quality assurance (QA) team. This gives us a chance to catch any issues that may not have been detected during the initial build and test process.
+
+We use a continuous delivery (CD) pipeline to manage the deployment of code changes to production. The CD pipeline includes automated processes for deploying code to both staging and production environments, using tools such as Ansible or Puppet to automate the deployment process. We use a release management tool such as Spinnaker or Argo to manage the release process and ensure that code changes are deployed to production in a controlled and predictable manner, including features such as canary releases to gradually roll out code changes to a small percentage of users before deploying them to the entire user base.
+
+We use Grafana to monitor the production environment and ensure that it is performing as expected. Grafana allows us to track various metrics such as CPU and memory usage, network throughput, and application performance. We have alerts set up to notify us if any issues are detected, so that we can respond and resolve them quickly. In addition, we use a tool called Nagios to monitor the uptime and availability of our production systems.
+
+Overall, our code deployment process is fully automated, which allows us to deploy code changes to production quickly and confidently, knowing that they have been thoroughly tested and are ready for production use."
 
 </details>
 
@@ -3408,8 +3618,21 @@ Useful resources:
 <details>
 <summary><b>Write the most important rules for using root privileges safely for novice administrators. ***</b></summary><br>
 
-To be completed.
+Here are some important rules for using root privileges safely for novice administrators:
 
+Use the sudo command: When you need to perform an action that requires root privileges, use the sudo command instead of logging in as the root user. This allows you to perform the necessary action while still maintaining your own user account and limiting the scope of the root user's actions.
+
+Be cautious when editing system files: Root privileges allow you to make changes to system files, which can be dangerous if you are not careful. Be sure to back up important files before making changes, and be sure to understand the consequences of the changes you are making.
+
+Use a separate root account: It is generally a good idea to create a separate root account for administrative tasks, rather than using your own user account with sudo privileges. This helps to ensure that you are not accidentally making changes to the system while logged in as a regular user.
+
+Use strong passwords: Use strong, unique passwords for your root account and any other accounts with root privileges. This helps to prevent unauthorized access to the system.
+
+Keep your system up to date: Make sure to keep your system software and applications up to date with the latest security patches. This can help to protect against vulnerabilities that could be exploited by attackers.
+
+By following these rules, you can help to ensure that you are using root privileges safely and effectively, while minimizing the risk of accidental or malicious damage to the system.
+  
+  
 </details>
 
 <details>
@@ -3438,7 +3661,27 @@ Useful resources:
 <details>
 <summary><b>What principles to follow for successful system performance tuning? ***</b></summary><br>
 
-To be completed.
+Identify the bottleneck: Before you can tune the system, you need to identify the bottleneck that is causing poor performance. This may be a hardware constraint, such as insufficient memory or CPU resources, or it may be a software issue, such as inefficient algorithms or poorly designed database queries.
+
+Measure and monitor: Once you have identified the bottleneck, it is important to measure and monitor the system's performance so that you can track the effectiveness of your tuning efforts. Use tools such as top, vmstat, and iostat to gather data on resource utilization and identify any bottlenecks.
+
+Test and iterate: Make small, incremental changes to the system and test their impact on performance. This allows you to narrow down the cause of the performance issue and focus your efforts on the most effective solutions.
+
+Use the right tools: There are many tools and techniques available for performance tuning, including system-level tools such as tune2fs, sysctl, and ulimit, as well as application-specific tools such as database query optimization tools and profilers. Choose the tools that are most appropriate for your specific situation.
+
+Follow best practices:
+  
+There are many best practices and guidelines available for performance tuning, including the following:
+
+Use caching: You notice that the system is making frequent requests to a database, which is causing high levels of I/O wait time. To reduce the load on the database, you implement caching using a tool such as Redis or Memcached. This allows the system to store frequently accessed data in a temporary location, such as memory, so that it can be accessed quickly without having to retrieve it from the database.
+
+Optimize database queries: You use tools such as EXPLAIN or EXPLAIN ANALYZE to analyze the performance of your database queries and identify any issues. You then use techniques such as indexing and normalization to optimize the design of your database, which improves the performance of your queries and reduces the load on the database.
+
+Use appropriate data structures and algorithms: You evaluate the data structures and algorithms that you are using in your application and choose ones that are well-suited to the tasks you are performing and optimized for the data you are working with. For example, you might use a hash table or a binary search tree instead of a linear search algorithm, or you might use a quicksort algorithm instead of a bubble sort algorithm.
+
+Monitor resource utilization: You use tools such as top, vmstat, and iostat to monitor resource utilization and identify any bottlenecks or areas of the system that are being overloaded. You also set up monitoring tools such as Grafana to track resource utilization over time and alert you to any issues.
+
+Use application-specific tools: You use tools such as database query optimization tools and profilers to identify and resolve performance issues in specific applications. For example, you might use a database query analyzer to identify and fix inefficient queries, or you might use a profiler to identify and optimize slow code paths in your application.
 
 Useful resources:
 
@@ -3458,8 +3701,21 @@ If you want to add other programs to system startup you need to change `/etc/rc.
 <details>
 <summary><b>CPU spent the most of the time for a IO operations to complete. Which tools do you use for diagnose what process(es) did exactly wait for IO? How to minimize IO wait time? ***</b></summary><br>
 
-To be completed.
+To diagnose what process(es) are causing high IO wait time, you can use the iostat command to monitor the I/O activity on your system. The iostat command provides statistics on the number of read and write operations, the amount of data transferred, and the average time it takes for an IO operation to complete.
 
+You can use the -x flag to display extended statistics, which includes the percentage of CPU time spent waiting for IO operations to complete (%iowait). This can help you identify which processes are causing high IO wait time.
+
+To minimize IO wait time, you can try the following approaches:
+
+Increase the number of CPU cores: Adding more CPU cores can help to reduce IO wait time by allowing the system to process more tasks concurrently.
+
+Optimize your storage configuration: Consider using faster storage devices, such as solid-state drives (SSDs) instead of hard disk drives (HDDs), or using a storage system with a larger cache or faster connectivity, such as a storage area network (SAN).
+
+Use caching: Implementing caching can help to reduce IO wait time by storing frequently accessed data in a temporary location, such as memory or a cache file, so that it can be accessed quickly without having to retrieve it from a slower storage location.
+
+Optimize your database queries: Poorly designed or inefficient database queries can be a major cause of IO wait time. Use tools such as EXPLAIN or EXPLAIN ANALYZE to analyze the performance of your queries and identify any issues, and use techniques such as indexing and normalization to optimize the design of your database.
+
+By following these approaches, you can minimize IO wait time and improve the overall performance of your system.
 Useful resources:
 
 - [Can anyone explain precisely what IOWait is?](https://serverfault.com/questions/12679/can-anyone-explain-precisely-what-iowait-is)
@@ -3562,8 +3818,39 @@ Useful resources:
 <details>
 <summary><b>How to add new disk in Linux server without rebooting? How to rescan and add it in LVM?</b></summary><br>
 
-To be completed.
+Here is the process to add a new disk to a Linux server without rebooting and add it to LVM:
+  
+```bash
+# Identify the new disk
+lsblk
 
+# Scan for the new disk
+udevadm trigger --subsystem-match=block --action=add
+
+# Inform the operating system of the new partition table
+partprobe /dev/sdb
+
+# Alternatively, create device mappings for the new partitions
+kpartx -a /dev/sdb
+
+# Create a file system on the new disk
+mkfs -t ext4 /dev/sdb
+
+# Create a physical volume
+pvcreate /dev/sdb
+
+# Add the physical volume to an existing volume group
+vgextend myvg /dev/sdb
+
+# Create a logical volume on the new disk
+lvcreate -l 100%FREE -n newlv myvg
+
+# Create a mount point and mount the new logical volume
+mkdir /mnt/newlv
+mount /dev/myvg/newlv /mnt/newlv
+  
+```
+By following these steps, you can add a new disk to a Linux server without rebooting and add it to LVM.
 Useful resources:
 
 - [How to Add New Disk in Linux CentOS 7 Without Rebooting](https://linoxide.com/linux-how-to/add-new-disk-centos-7-without-rebooting/)
@@ -3591,8 +3878,19 @@ Useful resources:
 
 <details>
 <summary><b>Can’t mount the root file system. Why? ***</b></summary><br>
+There can be several reasons why you might be unable to mount the root file system. Some common causes include:
 
-To be completed.
+Incorrect device name: If you have specified the wrong device name when attempting to mount the root file system, it will fail to mount. Make sure you are using the correct device name for the root file system.
+
+File system corruption: If the file system on the root partition is damaged or corrupted, it may be unable to be mounted. You can try running a file system check utility, such as fsck, to repair any issues with the file system.
+
+Hardware failure: If the disk or other hardware containing the root file system is damaged or malfunctioning, it may be unable to be mounted. In this case, you may need to replace the faulty hardware.
+
+Incorrect mount options: If you have specified the wrong mount options when attempting to mount the root file system, it may fail to mount. Make sure you are using the correct mount options for the file system type.
+
+Incorrect file system type: If you have specified the wrong file system type when attempting to mount the root file system, it may fail to mount. Make sure you are using the correct file system type for the root partition.
+
+By identifying and addressing the cause of the issue, you can troubleshoot and resolve the problem with the root file system.
 
 Useful resources:
 
@@ -3604,8 +3902,15 @@ Useful resources:
 <details>
 <summary><b>You have to delete 100GB files. Which method will be the most optimal? ***</b></summary><br>
 
-To be completed.
+It is difficult to determine which method will be the most optimal for deleting large files, as it will depend on the specific requirements and constraints of your situation. Here are some factors to consider when determining which method to use:
 
+Number of files: If you have a small number of large files to delete, it may be more efficient to use the rm command with the -f flag. This is a quick and straightforward method that can handle a small number of files efficiently.
+
+Criteria for selecting files: If you need to delete large numbers of files that meet certain criteria, such as files that are older than a certain age or that match a specific pattern, it may be more efficient to use the find command in combination with xargs or a script. This will allow you to delete only the files that meet your criteria, rather than deleting all files indiscriminately.
+
+Performance: If you are concerned about the performance impact of deleting large numbers of files, you may want to consider using a script or the find and xargs method, as these allow you to delete the files in batches, which can be more efficient than deleting them one by one.
+
+Ultimately, the most optimal method for deleting large files will depend on your specific needs and constraints. It may be necessary to test multiple methods and compare the results to determine the best approach for your situation.
 Useful resources:
 
 - [Is there a way to delete 100GB file on Linux without thrashing IO/load?](https://serverfault.com/questions/336917/is-there-a-way-to-delete-100gb-file-on-linux-without-thrashing-io-load)
@@ -3639,7 +3944,31 @@ Useful resources:
 <details>
 <summary><b>What considerations come into play when designing a highly available application, both at the architecture level and the application level? ***</b></summary><br>
 
-To be completed.
+When designing a highly available application, there are several considerations that come into play at both the architecture level and the application level. Some of the key considerations include:
+
+Redundancy: One of the key principles of high availability is redundancy, which involves having multiple copies of critical components or systems so that if one fails, the others can take over. This can be achieved through techniques such as load balancing, clustering, and replication.
+
+Fault tolerance: A highly available application should be able to continue operating even in the face of hardware or software failures. This may involve implementing features such as self-healing, failover, and graceful degradation to ensure that the application can continue to function even when parts of the system are not working correctly.
+
+Performance: A highly available application should be able to handle high levels of traffic and maintain good performance even under load. This may involve using techniques such as caching, optimization, and load balancing to ensure that the application can scale effectively.
+
+Monitoring and alerts: To ensure that a highly available application is functioning correctly, it is important to have robust monitoring and alerting systems in place. This can help to identify issues quickly and take appropriate action to resolve them before they become serious problems.
+
+By considering these factors at both the architecture and application levels, you can design a highly available application that is able to withstand failures and maintain high levels of performance and availability.
+  
+here is an example of how you might implement high availability at the architecture level for a web application:
+
+Load balancing: To ensure that the application can handle high levels of traffic and scale effectively, you can use a load balancer to distribute incoming requests across multiple servers. This can be achieved using hardware load balancers, software load balancers, or cloud-based load balancing services.
+
+Clustering: To provide redundancy and fault tolerance, you can use clustering to group multiple servers together and treat them as a single entity. This can allow the application to continue functioning even if one of the servers fails.
+
+Replication: To ensure that data is not lost in the event of a hardware or software failure, you can use replication to maintain multiple copies of the data across different servers or storage systems. This can allow the application to continue functioning even if one of the servers or storage systems fails.
+
+Self-healing: To ensure that the application can recover from failures and maintain high availability, you can implement self-healing features that automatically detect and correct issues as they arise. This can involve using techniques such as automatic restarts, failover, and rollback to restore the application to a healthy state.
+
+At the application level, you can also implement measures such as caching, optimization, and graceful degradation to ensure that the application performs well and remains available even under high load.
+
+By implementing these measures at both the architecture and application levels, you can design a highly available web application that is able to withstand failures and maintain high levels of performance and availability.
 
 </details>
 
