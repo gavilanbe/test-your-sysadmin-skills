@@ -347,9 +347,23 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Before you can manage processes, you must be able to identify them. Which tools will you use? ***</b></summary><br>
+<summary><b>Before you can manage processes, you must be able to identify them. Which tools will you use?</b></summary><br>
 
-To be completed.
+There are several tools that can be used to identify and manage processes on a computer system. Some common ones include:
+
+Task Manager: This is a built-in tool that is available on most operating systems, including Windows, macOS, and Linux. It allows you to view and manage the processes that are currently running on the system.
+
+ps: This is a command-line tool that is available on most Unix and Linux systems. It allows you to view the processes that are currently running on the system, along with information such as the process ID, the user that owns the process, and the command that was used to start the process.
+
+top: This is another command-line tool that is available on most Unix and Linux systems. It allows you to view a list of processes that are currently running on the system, along with information such as the CPU and memory usage of each process.
+
+htop: This is a more advanced version of the top command that provides a more user-friendly interface and additional features, such as the ability to sort processes by various criteria and to kill processes by selecting them with the cursor.
+
+Activity Monitor (macOS): This is a tool that is available on macOS systems. It allows you to view and manage the processes that are currently running on the system, along with information such as the CPU and memory usage of each process.
+
+System Monitor (Linux): This is a tool that is available on most Linux systems. It allows you to view and manage the processes that are currently running on the system, along with information such as the CPU and memory usage of each process.
+
+These are just a few examples of the tools that are available for identifying and managing processes on a computer system. The specific tools that you use will depend on the operating system that you are using and your personal preferences.
 
 </details>
 
