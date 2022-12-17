@@ -863,7 +863,19 @@ Useful resources:
 <details>
 <summary><b>What is your best command line text editor for daily working and scripting? ***</b></summary><br>
 
-To be completed.
+There are many good command line text editors that are suitable for daily work and scripting. Some popular ones include:
+
+1. **vi**: This is a classic Unix text editor that is available on almost all Unix and Linux systems. It is highly configurable and has a steep learning curve, but it is powerful and efficient once you become proficient with it.
+
+2. **emacs**: This is another classic Unix text editor that is highly configurable and has a wide range of features. It is known for its powerful macro system and its ability to integrate with other tools and programs.
+
+3. **nano**: This is a simpler text editor that is intended to be more user-friendly than vi or emacs. It is available on most Unix and Linux systems and is a good choice for users who are new to command line text editors.
+
+4. **gedit**: This is a text editor that is available on most Linux systems and is designed to be easy to use. It has a graphical user interface and supports syntax highlighting and other advanced features.
+
+5. **Sublime Text**: This is a popular cross-platform text editor that is known for its speed, simplicity, and flexibility. It is not a command line text editor, but it can be used from the command line and is often used for coding and scripting.
+
+Ultimately, the best text editor for you will depend on your personal preferences and the specific needs of your work. Some people prefer highly configurable editors like vi and emacs, while others prefer simpler editors like nano or gedit. You may want to try out a few different editors to see which one works best for you.
 
 </details>
 
@@ -887,8 +899,38 @@ Useful resources:
 <details>
 <summary><b>Draw me a simple network diagram: you have 20 systems, 1 router, 4 switches, 5 servers, and a small IP block. ***</b></summary><br>
 
-To be completed.
+Here is a simple network diagram that illustrates the components you described:
+  
+```bash
+                      Router
+                       |  |
+                       |  |
+                     Switch  Switch
+                       |  |
+                       |  |
+                     System  System
+                     System  System
+                       .      .
+                       .      .
+                       .      .
+                     System  System
+                     System  System
+                       |  |
+                       |  |
+                     Switch  Switch
+                       |  |
+                       |  |
+                     Server  Server
+                     Server  Server
+                     Server  Server
+                     Server  Server
+                     Server  Server
 
+```
+
+
+This diagram shows that the 20 systems are connected to the router through 4 switches. The 5 servers are also connected to the switches. The small IP block is not shown in this diagram, but it could be represented as a separate network segment that is connected to the router.
+  
 </details>
 
 <details>
@@ -1046,7 +1088,18 @@ To troubleshoot communication problems between servers, it is better to ideally 
 <details>
 <summary><b>Why won’t the hostnames resolve on your server? Fix this issue. ***</b></summary><br>
 
-To be completed.
+There could be several reasons why hostnames are not resolving on a server. Here are a few possible causes and solutions:
+
+1. **DNS server issues**: If the server is unable to resolve hostnames, it could be because there are issues with the DNS server that the server is using. To fix this issue, you can try specifying a different DNS server in the server's network configuration, or you can check the logs of the DNS server for any errors or issues.
+
+2. **Hosts file issues**: The server's `hosts` file, which is located at `/etc/hosts` on most systems, may contain incorrect or outdated information that is causing hostname resolution to fail. To fix this issue, you can check the `hosts` file for any errors and make sure that it contains the correct information.
+
+3. **Network connectivity issues**: If the server is unable to connect to the internet or to other servers on the network, hostname resolution may fail. To fix this issue, you can check the server's network configuration and ensure that it is properly configured and that all necessary network cables and devices are functioning correctly.
+
+4. **Name resolution service issues**: If the server is running a name resolution service, such as the Domain Name System (DNS) or the Network Information Service (NIS), it could be experiencing issues that are causing hostname resolution to fail. To fix this issue, you can check the logs of the name resolution service for any errors or issues and try restarting the service if necessary.
+
+To troubleshoot these issues, you may need to use tools such as `nslookup`, `dig`, or `host` to test the server's DNS resolution, and you may need to check the server's log files for any errors or issues.
+
 
 </details>
 
@@ -1394,9 +1447,39 @@ Useful resources:
 ###### System Questions (60)
 
 <details>
-<summary><b>Tell me about your experience with the production environments? ***</b></summary><br>
+<summary><b>Tell me about your experience with the production environments?</b></summary><br>
 
-To be completed.
+If you are asked about your experience with production environments in a Linux sysadmin interview, you can answer by discussing any relevant experience you have had working with production environments in the past. Here are a few points you might want to mention:
+
+1. Describe any production environments you have worked with: You might want to mention any specific technologies, systems, or applications you have worked with in production environments, as well as the size and complexity of the environments you have managed. For example: "I have experience working with production environments that range in size from small, single-server environments to large, multi-server environments. In my previous role, I was responsible for managing a production environment that included Linux servers, Windows servers, and a variety of applications such as web servers, databases, and custom applications."
+
+2. Explain your responsibilities: You might want to describe any specific tasks you have performed in production environments, such as monitoring systems, troubleshooting issues, deploying updates or new applications, or managing backups. For example: "In my previous role, I was responsible for monitoring the performance of the production environment and identifying and resolving any issues that arose. I also worked closely with the development team to deploy new applications and updates to the production environment, and I was responsible for managing the backup and recovery process for all systems in the environment."
+
+3. Discuss your approach to managing production environments: You might want to describe any processes or best practices you follow to ensure the stability and reliability of the production environments you manage, such as implementing monitoring systems, following change management procedures, or implementing disaster recovery plans. For example: "I believe in the importance of proactive management and maintenance to ensure the stability and reliability of production environments. In my previous role, I implemented a monitoring system that helped us to identify and resolve issues before they became critical, and I also developed and implemented a comprehensive change management process to ensure that updates and changes to the environment were carefully planned and tested before being deployed to production."
+
+4. Share any challenges or successes you have had: You might want to discuss any challenges you have faced or successes you have achieved while working with production environments, such as implementing new systems or recovering from outages. For example: "One of the biggest challenges you have faced or successes you have achieved while working with production environments, such as implementing new systems or recovering from outages.
+
+5. Explain your commitment to quality: You might want to discuss your commitment to maintaining high standards of quality in the production environments you manage, such as following industry best practices or working closely with other team members to ensure that systems are well-maintained and operate reliably.
+  
+In my previous role as a Linux sysadmin, I was responsible for managing a production environment that included Linux servers running CentOS 7 and CentOS 8, as well as Windows servers running Windows Server 2016 and Windows Server 2019. The environment included web servers running Apache and Nginx, databases running MySQL and MS SQL, and custom applications written in languages such as Python, PHP, and Java.
+
+My responsibilities included monitoring the performance of the servers and applications using tools such as Nagios and Zabbix, and identifying and resolving any issues that arose. I also worked closely with the development team to deploy new applications and updates to the production environment, and I was responsible for managing the backup and recovery process for all systems in the environment using tools such as Bacula and Veeam.
+
+To ensure the stability and reliability of the production environment, I implemented a monitoring system that helped us to identify and resolve issues before they became critical, and I developed and implemented a comprehensive change management process to ensure that updates and changes to the environment were carefully planned and tested before being deployed to production.
+
+One of the biggest challenges I faced in this role was implementing a new database system to replace an aging MySQL system that was becoming increasingly unreliable. I worked closely with the development team to design and implement a new MS SQL database system, and I coordinated the migration of all data and applications from the old MySQL system to the new MS SQL system. The successful implementation of the new system was a major achievement that greatly improved the reliability and performance of the production environment.
+
+To implement the new database system, I first worked with the development team to design the new system and plan the migration process. This included identifying any potential issues or challenges that we might encounter during the migration and developing a detailed plan to address them.
+
+Once the plan was in place, we prepared for the migration by taking a full backup of the old MySQL database and creating a staging environment where we could test the migration process. We then used tools such as MySQL Workbench and the MySQL Data Migration Wizard to transfer the data from the old database to the new MS SQL database.
+
+To ensure that the migration was successful and that there was no disruption to the production environment, we carefully tested the new database system in the staging environment to ensure that all data was transferred correctly and that all applications were functioning as expected. Once we were confident that the new system was ready, we scheduled the migration for a time when traffic to the production environment was expected to be at its lowest.
+  
+Once we were confident that the application was ready, we scheduled the deployment for a time when traffic to the production environment was expected to be at its lowest. We used tools such as Ansible and Jenkins to automate the deployment process and ensure that it was completed smoothly and with minimal disruption.
+
+To ensure that the production environment was always available and that we could quickly recover from any outages or issues, we implemented a disaster recovery plan that included regular backups of all systems, the use of redundant hardware and systems, and the implementation of failover processes to ensure that critical systems could continue to operate in the event of an outage.
+
+We also performed regular testing of our disaster recovery processes to ensure that they were working correctly and that we were prepared to respond to any issues that might arise. This included regular drills to simulate different types of outages and practice our recovery procedures, as well as the use of tools such as Veeam to perform test restores of our backups to ensure that they were working correctly.
 
 </details>
 
