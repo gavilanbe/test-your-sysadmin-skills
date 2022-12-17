@@ -504,7 +504,24 @@ Useful resource:
 <details>
 <summary><b>You typing <code>CTRL + C</code> but your script still running. How do you stop it? ***</b></summary><br>
 
-To be completed.
+In Linux, if you type `CTRL + C` but your script is still running, it could be because the script has a signal handler that is designed to ignore the `SIGINT` signal that is sent by the `CTRL + C` command. To stop the script, you can try one of the following approaches:
+
+1. Type `CTRL + Z` to suspend the script, and then use the `bg` command to run it in the background. You can then use the `kill` command to send the `SIGINT` signal to the script and stop it.
+
+2. Use the `kill` command to send the `SIGKILL` signal to the script. This signal cannot be caught or ignored by the script, and it will cause the script to terminate immediately.
+
+Here is an example of how you might use these approaches to stop a script that is running in the foreground:
+
+```bash
+# Suspend the script with CTRL + Z
+^Z
+# Run the script in the background
+bg
+# Send the SIGINT signal to the script
+kill -SIGINT %1
+# Alternatively, send the SIGKILL signal to the script
+kill -SIGKILL %1
+
 
 Useful resources:
 
@@ -594,9 +611,27 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How do I <code>grep</code> recursively? Explain on several examples. ***</b></summary>
+<summary><b>How do I <code>grep</code> recursively? Explain on several examples.</b></summary>
 
-To be completed.
+To search for a string or pattern in files recursively in Linux, you can use the `grep` command with the `-r` or `--recursive` option. Here are a few examples of how you might use `grep` to search recursively:
+
+1. Search for the string "ERROR" in all files under the current directory:
+
+```bash
+grep -r "ERROR" .
+```
+2. Search for the pattern "^ERROR" (a line that starts with "ERROR") in all .log files under the /var/log directory:
+```bash
+grep -r "^ERROR" /var/log/*.log
+```
+3. Search for the string "ERROR" in all files under the /var/log directory, ignoring case:
+```bash
+grep -ri "ERROR" /var/log
+```
+4. Search for the string "ERROR" in all files under the current directory, printing the line numbers of the matching lines:
+```bash
+grep -rn "ERROR" .
+```
 
 </details>
 
