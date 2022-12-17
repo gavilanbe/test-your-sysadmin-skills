@@ -521,7 +521,7 @@ bg
 kill -SIGINT %1
 # Alternatively, send the SIGKILL signal to the script
 kill -SIGKILL %1
-
+```
 
 Useful resources:
 
