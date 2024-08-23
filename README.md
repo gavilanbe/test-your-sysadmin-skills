@@ -5544,6 +5544,8 @@ These scripts provide a simple yet effective way to back up and restore your sys
 
 </details>
 
+<details>
+
 <summary><b>What are salted hashes? Generate the password with salt for the <code>/etc/shadow</code> file.</b></summary><br>
 
 **Salt** at its most fundamental level is random data. When a properly protected password system receives a new password, it will create a hashed value for that password, create a new random salt value, and then store that combined value in its database. This helps defend against dictionary attacks and known hash attacks.
