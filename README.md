@@ -200,7 +200,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How do you get help on the command line? ***</b></summary><br>
+<summary><b>How do you get help on the command line? </b></summary><br>
 
 - `man` [commandname] can be used to see a description of a command (ex.: `man less`, `man cat`)
 
@@ -502,7 +502,7 @@ Useful resource:
 </details>
 
 <details>
-<summary><b>You typing <code>CTRL + C</code> but your script still running. How do you stop it? ***</b></summary><br>
+<summary><b>You typing <code>CTRL + C</code> but your script still running. How do you stop it?</b></summary><br>
 
 In Linux, if you type `CTRL + C` but your script is still running, it could be because the script has a signal handler that is designed to ignore the `SIGINT` signal that is sent by the `CTRL + C` command. To stop the script, you can try one of the following approaches:
 
@@ -861,7 +861,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What is your best command line text editor for daily working and scripting? ***</b></summary><br>
+<summary><b>What is your best command line text editor for daily working and scripting? </b></summary><br>
 
 There are many good command line text editors that are suitable for daily work and scripting. Some popular ones include:
 
@@ -897,39 +897,60 @@ Useful resources:
 ###### Network Questions (23)
 
 <details>
-<summary><b>Draw me a simple network diagram: you have 20 systems, 1 router, 4 switches, 5 servers, and a small IP block. ***</b></summary><br>
+<summary><b>Draw me a simple network diagram: you have 20 systems, 1 router, 4 switches, 5 servers, and a small IP block. </b></summary><br>
 
-Here is a simple network diagram that illustrates the components you described:
-  
-```bash
-                      Router
-                       |  |
-                       |  |
-                     Switch  Switch
-                       |  |
-                       |  |
-                     System  System
-                     System  System
-                       .      .
-                       .      .
-                       .      .
-                     System  System
-                     System  System
-                       |  |
-                       |  |
-                     Switch  Switch
-                       |  |
-                       |  |
-                     Server  Server
-                     Server  Server
-                     Server  Server
-                     Server  Server
-                     Server  Server
+```plaintext
++-------------------+
+|      Router       |
++-------------------+
+         |
+         |
+  +--------------------+
+  |     Switch 1       |
+  +--------------------+
+  |       |        |    \
+  |    Server 1  Server 2  \
+  |                        +-----------------+
+  |                        |     Switch 2    |
+  |                        +-----------------+
+  |                              |        |  \
+  |                           System 1   System 2 \
+  |                                             +-----------------+
+  |                                             |     Switch 3    |
+  |                                             +-----------------+
+  |                                                   |        |  \
+  |                                                System 3   System 4 \
+  |                                                               +-----------------+
+  |                                                               |     Switch 4    |
+  |                                                               +-----------------+
+  |                                                                     |        |  \
+  |                                                                  System 5   System 6 \
+  |                                                                                     \
+  +-------------------------------------------------------------------------------------+
+                                                                                         \
+ +----------------------+       +--------------------+       +--------------------+      \
+ |       Server 3       |       |      Server 4      |       |      Server 5      |      |
+ +----------------------+       +--------------------+       +--------------------+      |
+                                                                                         |
+                       +-------------------------------------------------------------+  |
+                       |                        IP Block:                            |  |
+                       |        192.168.0.0/24 (Router, Systems, Servers, Switches)  |  |
+                       +-------------------------------------------------------------+  |
+                                                                                         |
+                                                                                         |
+ +-------------------------------------+                                                 |
+ |   Remaining Systems (System 7-20)   |  <----------------------------------------------+
+ +-------------------------------------+
+ ```
 
-```
 
+### Explanation:
 
-This diagram shows that the 20 systems are connected to the router through 4 switches. The 5 servers are also connected to the switches. The small IP block is not shown in this diagram, but it could be represented as a separate network segment that is connected to the router.
+- The router connects to the 4 switches.
+- Switches are used to distribute connections to systems and servers.
+- Servers are distributed across the network using different switches for redundancy.
+- The IP block (192.168.0.0/24) is shared among the router, systems, servers, and switches.
+- Systems 7-20 are grouped and connected behind Switch 4 for simplicity.
   
 </details>
 
@@ -1086,7 +1107,7 @@ To troubleshoot communication problems between servers, it is better to ideally 
 </details>
 
 <details>
-<summary><b>Why won’t the hostnames resolve on your server? Fix this issue. ***</b></summary><br>
+<summary><b>Why won’t the hostnames resolve on your server? Fix this issue. </b></summary><br>
 
 There could be several reasons why hostnames are not resolving on a server. Here are a few possible causes and solutions:
 
@@ -1365,7 +1386,7 @@ Useful resources:
 ###### Devops Questions (5)
 
 <details>
-<summary><b>What is DevOps? Which is more important to the success of any DevOps community: how people communicate or the tools that you choose to deploy? ***</b></summary><br>
+<summary><b>What is DevOps? Which is more important to the success of any DevOps community: how people communicate or the tools that you choose to deploy? </b></summary><br>
 
 **DevOps** is a cohesive team that engages in both Development and Operations tasks, or it's individual Operations and Development teams that work very closely together. It's more of a "way" of working collaboratively with other departments to achieve common goals.
 
@@ -2094,7 +2115,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What steps will be taken by init when you run <code>telinit 1</code> from run level 3? What will be the final result of this? If you use <code>telinit 6</code> instead of <code>reboot</code> command your server will be restarted? ***</b></summary><br>
+<summary><b>What steps will be taken by init when you run <code>telinit 1</code> from run level 3? What will be the final result of this? If you use <code>telinit 6</code> instead of <code>reboot</code> command your server will be restarted? </b></summary><br>
 
 The telinit command is used to change the system's runlevel in a Linux or Unix-like operating system. When you run the command telinit 1 from runlevel 3, the following steps will be taken:
 
@@ -2151,7 +2172,7 @@ __EOF__
 </details>
 
 <details>
-<summary><b>How to change the kernel parameters? What kernel options might you need to tune? ***</b></summary><br>
+<summary><b>How to change the kernel parameters? What kernel options might you need to tune? </b></summary><br>
 
 To set the kernel parameters in Unix-like, first edit the file `/etc/sysctl.conf` after making the changes save the file and run the command `sysctl -p`, this command will make the changes permanently without rebooting the machine.
 
@@ -2503,14 +2524,77 @@ Most Unix-like operating systems, including Linux and BSD, provide ways to limit
 
 </details>
 
+
 <details>
-<summary><b>During configuration HAProxy to working with Redis you get <code>General socket error (Permission denied)</code> from log. SELinux is enable. Explain basic SELinux troubleshooting in CLI. ***</b></summary><br>
+<summary><b>During configuration HAProxy to work with Redis you get <code>General socket error (Permission denied)</code> from log. SELinux is enabled. Explain basic SELinux troubleshooting in CLI. </b></summary><br>
+
+When troubleshooting SELinux issues, such as receiving a "Permission denied" error while configuring HAProxy to work with Redis, the goal is to identify the cause of the issue and apply the necessary fixes. Here is a basic process for SELinux troubleshooting from the command line (CLI).
+
+### **Step 1: Verify SELinux Status**
+   - First, confirm that SELinux is indeed enabled and enforcing policies. Use the following command to check the status:
+     ```bash
+     sestatus
+     ```
+   - The output will indicate if SELinux is enabled, in permissive or enforcing mode, and which policy is being applied.
+
+### **Step 2: Check the Audit Logs**
+   - SELinux logs violations and errors in the audit logs. These logs contain valuable information about why a permission was denied. Use the `audit.log` to inspect recent denials:
+     ```bash
+     grep -i denied /var/log/audit/audit.log
+     ```
+   - Look for entries related to the `haproxy` or `redis` services. The logs will provide details about which SELinux policy caused the permission denial.
+
+### **Step 3: Use `ausearch` to Filter Logs**
+   - The `ausearch` tool can be used to filter logs based on recent events, specific processes, or specific types of denials:
+     ```bash
+     ausearch -m avc -ts recent
+     ```
+   - This command will list the most recent Access Vector Cache (AVC) denials, which are SELinux-related permission issues.
+
+### **Step 4: Use `audit2why` to Interpret Logs**
+   - The `audit2why` tool translates the raw audit logs into human-readable information. It explains why SELinux is blocking access:
+     ```bash
+     ausearch -m avc -ts recent | audit2why
+     ```
+   - The output will provide detailed reasoning behind the SELinux denial and often suggests a solution, such as changing the security context or modifying SELinux policies.
+
+### **Step 5: Temporary Solution - Set SELinux to Permissive**
+   - As a temporary workaround for troubleshooting, you can set SELinux to permissive mode, which logs violations but does not enforce policies:
+     ```bash
+     setenforce 0
+     ```
+   - This will allow you to test if SELinux is indeed the cause of the issue. To switch back to enforcing mode after testing:
+     ```bash
+     setenforce 1
+     ```
+
+### **Step 6: Adjust SELinux Context or Booleans**
+   - If the issue is caused by incorrect file or process context, you can modify the context using `chcon` or restore the default context with `restorecon`:
+     ```bash
+     restorecon -Rv /path/to/directory
+     ```
+   - Additionally, some SELinux booleans might need to be enabled or adjusted for services like HAProxy or Redis to work properly. For example:
+     ```bash
+     getsebool -a | grep haproxy
+     setsebool haproxy_connect_any 1
+     ```
+
+### **Step 7: Apply a Permanent Fix with Custom Policy**
+   - If the problem persists and no default SELinux settings resolve the issue, consider generating and applying a custom SELinux policy. You can create one using `audit2allow`:
+     ```bash
+     ausearch -m avc -ts recent | audit2allow -M custom_haproxy_policy
+     semodule -i custom_haproxy_policy.pp
+     ```
+   - This will compile and install a new SELinux policy module that permits the previously denied action.
+
+### **Conclusion:**
+By following these basic SELinux troubleshooting steps, you can identify and resolve permission-related issues caused by SELinux, such as the "General socket error (Permission denied)" in HAProxy and Redis configurations. Always make sure to review audit logs, use tools like `ausearch` and `audit2why`, and apply permanent fixes when necessary.
 
 Useful resources:
-
 - [Basic SELinux Troubleshooting in CLI](https://access.redhat.com/articles/2191331)
 
 </details>
+
 
 <details>
 <summary><b>You have configured an RSA key login but your server show <code>Server refused our key</code> as expected. Where will you look for the cause of the problem?</b></summary><br>
@@ -2570,15 +2654,57 @@ There are many other file systems available for use in Linux, including XFS and 
 
 </details>
 
+
 <details>
-<summary><b>A project manager needs a new SQL Server. What do you ask her/his? ***</b></summary><br>
+<summary><b>A project manager needs a new SQL Server. What do you ask her/him? </b></summary><br>
 
-I want the DBA to ask questions like:
+When a project manager requests a new SQL Server, the DBA needs to gather specific information to ensure that the database infrastructure meets the project’s requirements. Here are the critical questions that should be asked:
 
-- How big will the database be? (whether we can add the database to an existing server)
-- How critical is the database? (about clustering, disaster recovery, high availability)
+### **1. How big will the database be?**
+   - **Purpose:** To determine the size of the database and whether it can be accommodated on an existing server or requires a new server.
+   - **Follow-up:** Will the database grow significantly over time? If so, at what rate? How much data do you anticipate adding each month or year?
+
+### **2. How critical is the database?**
+   - **Purpose:** To assess the importance of the database to the organization and determine the level of redundancy, clustering, disaster recovery (DR), and high availability (HA) that will be needed.
+   - **Follow-up:** What is the expected Recovery Time Objective (RTO) and Recovery Point Objective (RPO)? Should the database be available 24/7, or are there acceptable maintenance windows for downtime?
+
+### **3. What kind of data will be stored?**
+   - **Purpose:** To understand the nature of the data, whether it’s transactional, analytical, or archival, and to choose the appropriate storage configuration and performance optimizations.
+   - **Follow-up:** Is the data sensitive or regulated by compliance requirements (e.g., GDPR, HIPAA)? What kind of performance do you expect, such as response times or transactional throughput?
+
+### **4. Will there be any special security requirements?**
+   - **Purpose:** To ensure the right security measures are in place, such as encryption, access control, auditing, and adherence to data protection regulations.
+   - **Follow-up:** Who needs access to the database? Should data be encrypted at rest and in transit? Will there be any integration with Active Directory or other identity management systems?
+
+### **5. What applications will connect to the database?**
+   - **Purpose:** To identify what applications or systems will connect to the database and how they will use it.
+   - **Follow-up:** Are there any specific performance or integration requirements? Are the applications write-heavy, read-heavy, or both?
+
+### **6. What type of workload will the database support?**
+   - **Purpose:** To understand whether the database will be handling transactional workloads (OLTP), analytical workloads (OLAP), or a mix of both.
+   - **Follow-up:** Will you require complex queries, reporting, or batch processing? How many concurrent users or connections do you expect?
+
+### **7. What is the expected lifespan of this project?**
+   - **Purpose:** To understand how long the database will need to be operational and whether the DBA should consider scalability, potential decommissioning, or migration plans.
+   - **Follow-up:** Will the database be archived or decommissioned at a certain point, or is it expected to grow and evolve with the project?
+
+### **8. Will the database require backups, and what is the backup strategy?**
+   - **Purpose:** To determine the appropriate backup and restore strategy.
+   - **Follow-up:** How often should backups be taken? What is the expected retention period for backups? Should point-in-time recovery be supported?
+
+### **9. What is the budget for the SQL Server infrastructure?**
+   - **Purpose:** To determine the available financial resources for the SQL Server infrastructure, licensing, and any associated software or hardware requirements.
+   - **Follow-up:** Are you looking for on-premise solutions, cloud deployments (Azure SQL, AWS RDS), or a hybrid approach? What level of SQL Server licensing (Standard, Enterprise) are you considering?
+
+### **10. Will the database require integration with other services or databases?**
+   - **Purpose:** To understand if the database needs to connect with other services or databases (e.g., ETL processes, third-party APIs).
+   - **Follow-up:** What integration points are needed? Will there be data replication or synchronization with other systems?
+
+### **Conclusion:**
+Asking these questions will provide the DBA with the necessary context to design and configure a SQL Server that meets the project’s specific needs, taking into account factors such as performance, security, availability, scalability, and budget.
 
 </details>
+
 
 <details>
 <summary><b>Create a file with 100 lines with random values.</b></summary><br>
@@ -2902,7 +3028,7 @@ Useful resources:
 ###### Network Questions (24)
 
 <details>
-<summary><b>Configure a virtual interface on your workstation. ***</b></summary><br>
+<summary><b>Configure a virtual interface on your workstation. </b></summary><br>
 
 To configure a virtual interface on a workstation running a Linux or Unix-like operating system, you can use the ip command with the addr add subcommand. Here is an example of how to configure a virtual interface with the IP address 192.168.1.100 and the netmask 255.255.255.0 on the eth0 interface:
   
@@ -2964,7 +3090,7 @@ If domain not resolved it's probably problem with DNS servers.
 </details>
 
 <details>
-<summary><b>Load balancing can dramatically impact server performance. Discuss several load balancing mechanisms. ***</b></summary><br>
+<summary><b>Load balancing can dramatically impact server performance. Discuss several load balancing mechanisms.</b></summary><br>
 
 Load balancing can have a significant impact on server performance for several reasons:
 
@@ -2987,7 +3113,7 @@ Proxy servers: Proxy servers are servers that act as intermediaries between clie
 </details>
 
 <details>
-<summary><b>List examples of network troubleshooting tools that can degrade during DNS issues. ***</b></summary><br>
+<summary><b>List examples of network troubleshooting tools that can degrade during DNS issues. </b></summary><br>
 
 There are several network troubleshooting tools that can be impacted by DNS issues, including:
 
@@ -3090,7 +3216,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Which, in your opinion, are the 5 most important OpenSSH parameters that improve the security? ***</b></summary><br>
+<summary><b>Which, in your opinion, are the 5 most important OpenSSH parameters that improve the security? </b></summary><br>
 
 There are several OpenSSH parameters that can be used to improve the security of a system. Here are five that are particularly important:
 
@@ -3533,7 +3659,7 @@ Abiding by a set of standards set by a government/Independent party/organisation
 ###### System Questions (61)
 
 <details>
-<summary><b>Explain the current architecture you’re responsible for and point out where it’s scalable or fault-tolerant. ***</b></summary><br>
+<summary><b>Explain the current architecture you’re responsible for and point out where it’s scalable or fault-tolerant. </b></summary><br>
 
 Currently, I am responsible for the architecture of a distributed web application that serves millions of users worldwide. The architecture consists of a front-end layer consisting of multiple web servers that are load balanced using a hardware load balancer. The web servers are running the Nginx web server software and are configured to serve static content and reverse proxy requests to the back-end application servers.
 
@@ -3548,19 +3674,40 @@ Overall, I believe that the current architecture is well-suited to support the b
 </details>
 
 <details>
-<summary><b>Tell me how code gets deployed in your current production. ***</b></summary><br>
+<summary><b>Tell me how code gets deployed in your current production. </b></summary><br>
 
-"In our production environment, we use Git for version control and have a continuous integration (CI) tool called Jenkins set up to automatically build and test code changes. Whenever a developer pushes code changes to the repository, Jenkins kicks off a build and runs a series of tests to ensure that the code is working as expected.
+In my current role as a Senior DevOps Engineer at [Company Name], our production deployment process is highly automated but also integrates manual approval steps for key environments. Here’s a detailed overview of how code is deployed to production:
 
-Once the build and tests pass, the code is deployed to a staging environment where it undergoes additional testing by our quality assurance (QA) team. This gives us a chance to catch any issues that may not have been detected during the initial build and test process.
+### **1. Development Stage**
+   - **Code Commit and Feature Branching:** Our development team follows a GitFlow branching model. Developers work on feature branches and commit their changes to GitHub. Every feature branch is linked to a Jira ticket, ensuring traceability from the development phase to production.
+   - **Code Review and Static Analysis:** After committing, developers open pull requests (PRs). These PRs undergo a mandatory code review by at least two senior developers. In parallel, the PR triggers our **SonarQube** static analysis tool, which checks for code quality, security vulnerabilities, and test coverage. Only PRs that pass these checks and reviews are allowed to be merged into the `develop` branch.
 
-We use a continuous delivery (CD) pipeline to manage the deployment of code changes to production. The CD pipeline includes automated processes for deploying code to both staging and production environments, using tools such as Ansible or Puppet to automate the deployment process. We use a release management tool such as Spinnaker or Argo to manage the release process and ensure that code changes are deployed to production in a controlled and predictable manner, including features such as canary releases to gradually roll out code changes to a small percentage of users before deploying them to the entire user base.
+### **2. Continuous Integration (CI)**
+   - **Automated Build and Testing:** Once the code is merged into `develop`, our **Jenkins pipeline** triggers an automated build. The build compiles the application, packages it as a Docker image, and stores it in our internal **Artifactory** repository. Simultaneously, **unit tests**, **integration tests**, and **API tests** are executed using **JUnit** and **Postman** to ensure the changes haven’t introduced regressions.
+   - **Test Coverage Reporting:** Test coverage is closely monitored. We require a minimum of 80% coverage for critical components. Any build that doesn’t meet this threshold fails the CI pipeline and is flagged for additional developer attention.
 
-We use Grafana to monitor the production environment and ensure that it is performing as expected. Grafana allows us to track various metrics such as CPU and memory usage, network throughput, and application performance. We have alerts set up to notify us if any issues are detected, so that we can respond and resolve them quickly. In addition, we use a tool called Nagios to monitor the uptime and availability of our production systems.
+### **3. Staging Deployment and Pre-Production Testing**
+   - **Staging Deployment:** Once a build passes all tests, it is automatically deployed to our **staging environment** via **GitLab CI/CD**. The deployment is containerized using **Kubernetes**. We use **Helm charts** to configure and manage the deployment, which makes rolling back or redeploying to a different environment seamless.
+   - **End-to-End Testing:** In staging, we run full end-to-end tests using **Selenium** and **Cypress**. We also conduct **performance tests** using **JMeter** to ensure that the new code doesn’t degrade the performance of the application. Only after passing these tests does the code move forward to the next stage.
 
-Overall, our code deployment process is fully automated, which allows us to deploy code changes to production quickly and confidently, knowing that they have been thoroughly tested and are ready for production use."
+### **4. Pre-Production Approval and Manual Checks**
+   - **Approval Process:** Before deploying to production, a manual approval step is required. This is managed through **ServiceNow**, where the release manager and product owners verify the changes in staging, ensuring that user acceptance tests (UAT) are successfully completed. We also validate that all related Jira tickets are closed and linked to the deployment, which prevents incomplete features from being deployed.
+   
+### **5. Production Deployment**
+   - **Blue-Green Deployment:** We use a **blue-green deployment strategy** for production releases. In production, two identical environments (blue and green) are maintained. The new release is deployed to the idle environment (green), and after running basic smoke tests using **New Relic** and **Grafana**, we switch traffic over from blue to green via our **AWS Application Load Balancer (ALB)**.
+   - **Monitoring and Logging:** After the traffic is routed to the green environment, we monitor the application closely. **Prometheus** and **Grafana** are used for real-time monitoring of metrics such as CPU usage, memory, and request latencies. We also use **ELK Stack (Elasticsearch, Logstash, Kibana)** to aggregate logs and detect any anomalies.
+
+### **6. Rollback Strategy**
+   - **Instant Rollbacks:** If any critical issue is detected during or after the production release, we immediately trigger a rollback to the previous stable version using **Helm**. This process is automated in our pipeline, so we can return to the previous release with minimal downtime.
+
+### **7. Post-Deployment Review**
+   - **Post-Release Retrospective:** After every deployment, we conduct a post-release review. We analyze any issues, performance bottlenecks, or unexpected behaviors that occurred during deployment. This data is logged in our internal knowledge base and used to improve future releases.
+
+### **Conclusion:**
+In my current organization, the production deployment process is a well-oiled machine that leverages modern CI/CD practices, Kubernetes orchestration, and automated monitoring. Our blue-green deployment strategy ensures minimal downtime, and the automated rollback capability allows us to revert quickly if anything goes wrong. With 10 years of experience, I’ve worked on refining this process to ensure that our deployments are smooth, secure, and well-monitored, resulting in high availability for our production systems.
 
 </details>
+
 
 <details>
 <summary><b>What are the different types of kernels? Explain.</b></summary><br>
@@ -3616,7 +3763,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Write the most important rules for using root privileges safely for novice administrators. ***</b></summary><br>
+<summary><b>Write the most important rules for using root privileges safely for novice administrators. </b></summary><br>
 
 Here are some important rules for using root privileges safely for novice administrators:
 
@@ -3659,7 +3806,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What principles to follow for successful system performance tuning? ***</b></summary><br>
+<summary><b>What principles to follow for successful system performance tuning? </b></summary><br>
 
 Identify the bottleneck: Before you can tune the system, you need to identify the bottleneck that is causing poor performance. This may be a hardware constraint, such as insufficient memory or CPU resources, or it may be a software issue, such as inefficient algorithms or poorly designed database queries.
 
@@ -3699,7 +3846,7 @@ If you want to add other programs to system startup you need to change `/etc/rc.
 </details>
 
 <details>
-<summary><b>CPU spent the most of the time for a IO operations to complete. Which tools do you use for diagnose what process(es) did exactly wait for IO? How to minimize IO wait time? ***</b></summary><br>
+<summary><b>CPU spent the most of the time for a IO operations to complete. Which tools do you use for diagnose what process(es) did exactly wait for IO? How to minimize IO wait time? </b></summary><br>
 
 To diagnose what process(es) are causing high IO wait time, you can use the iostat command to monitor the I/O activity on your system. The iostat command provides statistics on the number of read and write operations, the amount of data transferred, and the average time it takes for an IO operation to complete.
 
@@ -3877,7 +4024,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Can’t mount the root file system. Why? ***</b></summary><br>
+<summary><b>Can’t mount the root file system. Why? </b></summary><br>
 There can be several reasons why you might be unable to mount the root file system. Some common causes include:
 
 Incorrect device name: If you have specified the wrong device name when attempting to mount the root file system, it will fail to mount. Make sure you are using the correct device name for the root file system.
@@ -3900,7 +4047,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>You have to delete 100GB files. Which method will be the most optimal? ***</b></summary><br>
+<summary><b>You have to delete 100GB files. Which method will be the most optimal? </b></summary><br>
 
 It is difficult to determine which method will be the most optimal for deleting large files, as it will depend on the specific requirements and constraints of your situation. Here are some factors to consider when determining which method to use:
 
@@ -3942,7 +4089,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What considerations come into play when designing a highly available application, both at the architecture level and the application level? ***</b></summary><br>
+<summary><b>What considerations come into play when designing a highly available application, both at the architecture level and the application level? </b></summary><br>
 
 When designing a highly available application, there are several considerations that come into play at both the architecture level and the application level. Some of the key considerations include:
 
@@ -4023,9 +4170,42 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What are some of the benefits of using systemd over SysV init? ***</b></summary><br>
+<summary><b>What are some of the benefits of using systemd over SysV init?</b></summary><br>
 
-To be completed.
+**Benefits of using `systemd` over SysV init:**
+
+1. **Parallelization of Services:**
+   - `systemd` starts services concurrently, making the boot process faster. SysV init, on the other hand, starts services sequentially, leading to slower boot times.
+
+2. **On-Demand Activation:**
+   - `systemd` can start services only when they are actually needed, reducing the system's overhead. It supports socket-based, bus-based, device-based, and path-based activation.
+
+3. **Service Monitoring and Recovery:**
+   - `systemd` has built-in mechanisms for monitoring services. If a service crashes, `systemd` can automatically restart it based on predefined conditions, improving system resilience. SysV init lacks native support for service monitoring and restart.
+
+4. **Unified Configuration:**
+   - `systemd` uses standardized unit files that define services, making the configuration simpler and more consistent compared to the various shell scripts used by SysV init.
+
+5. **Dependency Management:**
+   - `systemd` offers improved dependency management between services. It ensures that services start in the correct order and handles more complex dependencies with ease, unlike SysV init which has basic support for dependencies.
+
+6. **Logging Integration:**
+   - `systemd` integrates with `journald` for logging, providing centralized and structured logging with more features, like filtering and persistent logs. SysV init generally relies on traditional logging methods, such as `syslog`.
+
+7. **Resource Control:**
+   - `systemd` integrates with Linux control groups (cgroups), allowing fine-grained resource management like limiting CPU, memory, and I/O for services. SysV init does not offer built-in resource control.
+
+8. **Consistent Management Interface:**
+   - `systemctl` in `systemd` provides a consistent interface to manage services (start, stop, restart, enable, disable), which is more user-friendly compared to the multiple commands needed in SysV init (e.g., `service`, `chkconfig`).
+
+9. **Timers Over Cron Jobs:**
+   - `systemd` provides native timer units, which can replace `cron` for scheduling tasks with more flexibility and easier integration with service management.
+
+10. **State Tracking:**
+   - `systemd` tracks the active state of services, devices, sockets, and other units, allowing for more detailed and accurate reporting of system status, unlike SysV init which is more limited in tracking service states.
+
+In summary, `systemd` offers more advanced features, better performance, and easier management than SysV init, making it the preferred choice in modern Linux distributions.
+
 
 </details>
 
@@ -4045,15 +4225,47 @@ done
 </details>
 
 <details>
-<summary><b>You need to copy a large amount of data. Explain the most effective way. ***</b></summary><br>
+<summary><b>You need to copy a large amount of data. Explain the most effective way. </b></summary><br>
 
-To be completed.
+When copying large amounts of data, several methods can be used depending on the specific requirements, such as reliability, speed, and handling interruptions. Two common and effective methods are `rsync` and `cp`.
+
+### 1. **Using `rsync`:**
+   - **Why use `rsync`?**
+     `rsync` is preferred for copying large datasets because it supports:
+     - **Incremental copying:** Only changes are copied, which is useful for large datasets or recurring transfers.
+     - **Reliability:** If the process is interrupted, it can resume from where it left off.
+     - **Verification:** `rsync` can verify that files are copied correctly by comparing checksums.
+   
+   - **Example:**
+     ```bash
+     rsync -aP /source/directory/ /destination/directory/
+     ```
+     - `-a`: Archive mode to preserve permissions, symlinks, and other metadata.
+     - `-P`: Shows progress and keeps partially transferred files.
+
+   - **Best use case:** When data integrity and the ability to resume interrupted transfers are important, especially for remote or large data transfers.
+
+### 2. **Using `cp`:**
+   - **Why use `cp`?**
+     `cp` is straightforward and fast for local transfers. However, it lacks incremental copying and automatic resumption.
+
+   - **Example:**
+     ```bash
+     cp -r /source/directory /destination/directory
+     ```
+     - `-r`: Recursively copy all directories and files.
+
+   - **Best use case:** Simple local transfers where you need to copy everything in one go and there is no risk of interruption.
+
+### Conclusion:
+- For most cases, especially when dealing with large amounts of data and potential interruptions, `rsync` is the most effective tool due to its robustness, flexibility, and incremental copying capability.
+- If the data is local and the transfer is straightforward, `cp` can be faster and simpler.
 
 Useful resources:
-
 - [Copying a large directory tree locally? cp or rsync?](https://serverfault.com/questions/43014/copying-a-large-directory-tree-locally-cp-or-rsync)
 
 </details>
+
 
 <details>
 <summary><b>Tell me about the dangers and caveats of LVM.</b></summary><br>
@@ -4073,15 +4285,99 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Python dev team in your company have a dilemma what to choose: uwsgi or gunicorn. What are the pros/cons of each of the solutions from the admin's perspective? ***</b></summary><br>
+<summary><b>Python dev team in your company have a dilemma what to choose: uwsgi or gunicorn. What are the pros/cons of each of the solutions from the admin's perspective? </b></summary><br>
 
-To be completed.
+Choosing between `uWSGI` and `Gunicorn` is a critical decision for deploying Python web applications in a production environment. Both are mature and well-regarded WSGI servers, but their differences in design, philosophy, and operational behavior mean they cater to different needs and scenarios. As an administrator, it is important to understand the strengths and weaknesses of each solution in terms of configuration complexity, performance, feature set, monitoring, scalability, and integration with system-level tools. Here’s an in-depth exploration of both:
+
+### **uWSGI: A Swiss Army Knife of Application Servers**
+
+**Overview:**
+- `uWSGI` is an application server with a broad scope. Originally designed for hosting Python web applications via the WSGI protocol, it has evolved into a versatile platform supporting multiple languages (e.g., Ruby, Perl, Lua) and protocols (e.g., HTTP, FastCGI, SCGI).
+- It is best described as a full-stack application server due to its rich feature set, which extends beyond Python deployment to include process management, load balancing, and more.
+
+#### **Pros:**
+
+1. **Rich Feature Set:**
+   - uWSGI shines when you need a highly customizable deployment. It provides granular control over nearly every aspect of server behavior: process management, concurrency models, custom protocol handling, and even advanced caching strategies.
+   - Features such as `Emperor mode` (dynamic spawning of app instances), built-in support for zero-downtime reloads, and socket-based activation make it a powerful tool for managing complex applications.
+
+2. **Protocol and Language Agnostic:**
+   - Unlike Gunicorn, which is solely focused on Python WSGI applications, `uWSGI` is protocol and language agnostic. It can serve web applications written in various languages, and handle different protocols like FastCGI, HTTP/2, or WebSocket, providing a lot of flexibility in a polyglot environment.
+
+3. **Fine-Grained Performance Tuning:**
+   - `uWSGI` allows fine-grained control over how it allocates and manages workers, threads, and memory. For example, administrators can configure options like `--processes`, `--threads`, and `--async` to adjust how workers are managed and optimize for CPU-bound or I/O-bound workloads.
+   - Additional features like `cgroups` integration for resource limiting and built-in caching mechanisms allow for further optimization at scale.
+
+4. **Deployment Strategies and Scalability:**
+   - `uWSGI` excels in environments where scalability is key. You can deploy it in multi-app scenarios, manage large clusters of microservices, and use native load-balancing and failover mechanisms, all within the same application server.
+
+#### **Cons:**
+
+1. **Steep Learning Curve:**
+   - The breadth of `uWSGI`'s features comes at the cost of complexity. Its configuration syntax is dense and highly flexible, which can be overwhelming for new users or even experienced administrators who don’t need every feature.
+   - Mistakes in configuration (e.g., over-provisioning workers, mismanaging memory) can lead to inefficient resource usage or even instability under load.
+
+2. **Overhead and Resource Consumption:**
+   - While `uWSGI` is powerful, it also tends to have a higher resource footprint than Gunicorn when running simple workloads. The complexity and additional features of `uWSGI` can introduce performance overhead, especially if features are enabled by default but not necessary for the use case.
+
+3. **Configuration Pitfalls:**
+   - `uWSGI` is notorious for having many configuration options that, if not managed properly, can lead to suboptimal performance. Some configurations need careful adjustment based on workload characteristics, such as balancing between workers, threads, and async tasks.
+
+### **Gunicorn: Simplicity and Stability**
+
+**Overview:**
+- `Gunicorn` (Green Unicorn) is a Python WSGI server that takes a minimalist approach. It focuses exclusively on serving Python WSGI applications and is designed to be easy to use, reliable, and performant with minimal configuration.
+- It employs a pre-fork worker model, similar to traditional web servers like Apache, where the master process forks several worker processes that handle incoming requests.
+
+#### **Pros:**
+
+1. **Simplicity:**
+   - `Gunicorn`'s design philosophy is one of simplicity and ease of use. It is relatively straightforward to configure and deploy, requiring only a few lines to get started. This makes it appealing to administrators who want to set up a server with minimal overhead.
+   - Its out-of-the-box configuration is well-suited for most WSGI applications, meaning that admins often don’t need to spend a lot of time fine-tuning the server.
+
+2. **Lower Resource Usage:**
+   - Due to its streamlined nature, `Gunicorn` tends to use fewer resources (CPU and memory) compared to `uWSGI` when handling the same workload, especially in simpler or smaller applications. This makes it a good choice for cloud deployments where resource costs need to be minimized.
+
+3. **Flexible Worker Models:**
+   - Although `Gunicorn` defaults to synchronous workers, it also supports asynchronous workers through `gevent` and `eventlet`, as well as threaded workers. This flexibility makes it suitable for both CPU-bound and I/O-bound workloads, without needing complex configuration.
+
+4. **Wide Community Support:**
+   - `Gunicorn` has a large user base and solid community support. Many modern Python web frameworks (such as Django, Flask, and FastAPI) recommend `Gunicorn` as the default WSGI server, making it a well-documented and battle-tested option.
+
+#### **Cons:**
+
+1. **Limited Advanced Features:**
+   - While the simplicity of `Gunicorn` is an advantage, it lacks some of the more advanced features found in `uWSGI`. For example, it does not have built-in support for advanced features like dynamic app loading, socket-based activation, or advanced caching.
+   - For more complex deployments that require features like request queuing, process isolation, or multiple language support, `Gunicorn` falls short.
+
+2. **No Native Zero-Downtime Reloads:**
+   - Unlike `uWSGI`, `Gunicorn` does not natively support zero-downtime reloads, although third-party solutions like `systemd` or `nginx` can be used to handle this. This could be a limitation in environments that require high availability and continuous delivery.
+
+3. **Less Control Over Optimization:**
+   - `Gunicorn` provides fewer options for optimizing and tuning the server for specific workloads. While its default settings are good, it lacks the deep configurability that `uWSGI` offers, which may be a disadvantage in performance-critical environments.
+
+### **Detailed Comparison:**
+
+| Feature                            | uWSGI                                           | Gunicorn                                      |
+|------------------------------------|-------------------------------------------------|----------------------------------------------|
+| **Performance**                    | High performance but may require tuning         | Good performance with simpler configurations |
+| **Configuration Complexity**       | Complex, requires in-depth knowledge            | Simple, minimal setup                        |
+| **Resource Usage**                 | Higher resource usage due to features           | Lower resource usage                         |
+| **Language Support**               | Multi-language and multi-protocol               | Python WSGI only                             |
+| **Advanced Features**              | Extensive (e.g., socket handling, Emperor mode) | Lacks advanced features                      |
+| **Zero-Downtime Reload**           | Native support                                  | Not supported natively                       |
+| **Scalability**                    | Excellent scalability options                   | Suitable for most standard deployments       |
+| **Suitability for Large Deployments** | Excellent for complex environments              | Good for simpler web apps                    |
+
+### **Conclusion:**
+- **`uWSGI`** is ideal for complex, high-performance environments where advanced features and precise control over every aspect of the server are required. Its multi-protocol, multi-language support, and rich feature set make it suited to larger, more demanding applications that need scalability, load balancing, and flexibility. However, it requires careful configuration and tuning, making it better suited for admins who have the time and expertise to manage it.
+- **`Gunicorn`** is better suited for more straightforward Python web applications where simplicity, ease of deployment, and lower resource usage are priorities. It is a solid, stable choice that works well in many environments with little need for extensive configuration or tuning.
 
 Useful resources:
-
 - [uWSGI vs. Gunicorn, or How to Make Python Go Faster than Node](https://blog.kgriffs.com/2012/12/18/uwsgi-vs-gunicorn-vs-node-benchmarks.html)
 
 </details>
+
 
 <details>
 <summary><b>What if <code>kill -9</code> does not work? Describe exceptions for which the use of SIGKILL is insufficient.</b></summary><br>
@@ -4221,15 +4517,104 @@ Useful resources:
 <details>
 <summary><b>One of the processes runs slowly. How to check how long has been running and which tools will you use?</b></summary><br>
 
-To be completed.
+When diagnosing a slow-running process, the first step is to gather detailed information about the process's behavior and its runtime. Knowing how long a process has been running helps pinpoint whether the problem is due to the process itself, system resource constraints, or external dependencies. Here is a structured approach using tools available on Linux systems.
+
+### **Step 1: Identify the Process**
+   - First, determine the **PID** (Process ID) of the slow process. If the process is well known by name, use `ps`, `top`, or `htop` to locate it:
+     ```bash
+     ps aux | grep <process_name>
+     ```
+     - This command lists all processes with their PIDs and other details like memory and CPU usage.
+     - Alternatively, you can use `pgrep <process_name>` to directly find the PID of a specific process.
+
+### **Step 2: Determine How Long the Process Has Been Running**
+
+Several methods can be used to check how long the process has been running:
+
+#### **1. Using `ps` Command**
+   - `ps` provides detailed information about processes, including their start time and runtime.
+     ```bash
+     ps -p <PID> -o etime,etime=
+     ```
+     - The `etime` option shows the elapsed time since the process started in `[DD-]hh:mm:ss` format.
+
+   - If you want additional information like the start time:
+     ```bash
+     ps -p <PID> -o lstart,etime
+     ```
+     - `lstart` displays the exact start time and `etime` shows the elapsed time.
+
+#### **2. Using `top` or `htop`**
+   - Both `top` and `htop` are real-time monitoring tools. You can see the uptime of a process under the **TIME+** or **STIME** columns.
+   - In `htop`, the **TIME+** column indicates the CPU time used by the process, and the **STIME** column shows when the process started.
+
+     ```bash
+     top -p <PID>
+     ```
+     - In `top`, filter by PID to focus on the process of interest.
+
+#### **3. Using `/proc` Filesystem**
+   - Linux exposes detailed process information in the `/proc` directory. You can extract the process start time from the `/proc/<PID>/stat` file:
+     ```bash
+     cat /proc/<PID>/stat
+     ```
+     - The 22nd field in this file shows the process start time in jiffies (system clock ticks). You would need to convert this value to human-readable time using the system's uptime and clock rate.
+
+   - Alternatively, using a more straightforward method:
+     ```bash
+     stat /proc/<PID>
+     ```
+     - The `Access`, `Modify`, and `Change` times in this command reflect the creation of the process in the `/proc` filesystem, which is effectively the process start time.
+
+### **Step 3: Monitor Resource Usage**
+
+Once you have established the process runtime, the next step is to understand why the process is slow. Monitoring resource usage helps in identifying bottlenecks in CPU, memory, I/O, or network activity.
+
+#### **1. Using `top`/`htop`**
+   - `top` and `htop` provide a real-time view of CPU and memory usage. Look for processes that consume high CPU or memory resources.
+   - `htop` offers a more user-friendly interface and shows resource usage per core and detailed process information.
+
+#### **2. Using `iotop`**
+   - If the process is I/O-bound (e.g., reading/writing to disk), use `iotop` to monitor I/O usage per process:
+     ```bash
+     sudo iotop -o
+     ```
+     - This command shows real-time disk I/O statistics and identifies if the process is constrained by disk read/write operations.
+
+#### **3. Using `strace`**
+   - If you suspect the process is slow due to system calls or waiting on external resources, use `strace` to trace system calls made by the process:
+     ```bash
+     strace -p <PID>
+     ```
+     - This outputs a stream of system calls that the process is making, which can help identify delays due to I/O, network, or other system resources.
+
+#### **4. Using `perf`**
+   - `perf` is a more advanced profiling tool that can help identify CPU bottlenecks. You can use it to sample CPU performance events and get detailed information about which parts of the code are causing high CPU usage:
+     ```bash
+     perf top -p <PID>
+     ```
+     - This shows the most CPU-intensive functions or instructions for the given process.
+
+### **Step 4: Analyze External Dependencies**
+
+Sometimes a process might be slow due to external dependencies like network latency or database access times. Consider using:
+
+- **`ping`/`traceroute`:** For diagnosing network issues that might affect process performance.
+- **`ss`/`netstat`:** To monitor open connections and network activity for the process, which might indicate bottlenecks in network resources.
+- **Database logs and metrics:** If the process interacts with a database, slow queries could be the cause.
+
+### **Conclusion:**
+- Start by identifying the process and determining its runtime using tools like `ps`, `top`, or the `/proc` filesystem.
+- Once the runtime is established, focus on monitoring resource usage through `top`, `htop`, `iotop`, `strace`, and `perf` to diagnose potential bottlenecks.
+- Consider external dependencies like network or database performance as contributing factors to the slow process.
 
 Useful resources:
-
 - [How to check how long a process has been running?](https://unix.stackexchange.com/questions/7870/how-to-check-how-long-a-process-has-been-running)
 - [Linux how long a process has been running?](https://www.cyberciti.biz/faq/how-to-check-how-long-a-process-has-been-running/)
 - [How to see system call that executed in current time by process?](https://stackoverflow.com/questions/42677724/how-to-see-system-call-that-executed-in-current-time-by-process)
 
 </details>
+
 
 <details>
 <summary><b>What is a file descriptor in Linux?</b></summary><br>
@@ -4299,11 +4684,65 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Which symptoms might be suffering from a disk bottleneck? ***</b></summary><br>
+<summary><b>Which symptoms might be suffering from a disk bottleneck? </b></summary><br>
 
-To be completed.
+Disk bottlenecks can severely impact the performance of a system, and identifying them is crucial to ensuring smooth operation, especially for applications that depend heavily on disk I/O, such as databases, file servers, or large-scale data processing systems. Below are common symptoms that might indicate your system is suffering from a disk bottleneck.
+
+### **1. Slow Application Performance**
+   - **Symptom:** Applications that rely on reading from or writing to the disk (e.g., databases, file systems, logging systems) may experience noticeable delays in operation. You might see applications taking longer to load, process data, or respond to user interactions.
+   - **Cause:** The disk subsystem is unable to keep up with the data requests, causing delays in I/O operations.
+
+### **2. High Disk Utilization**
+   - **Symptom:** Monitoring tools like `iostat`, `iotop`, or `dstat` show that disk utilization is consistently at or near 100%. This indicates that the disk is constantly busy handling I/O requests.
+   - **Cause:** High levels of read/write operations are saturating the disk’s capacity, often leading to a bottleneck when the disk cannot process additional requests promptly.
+
+### **3. Increased I/O Wait Time**
+   - **Symptom:** CPU spends a significant amount of time in the `iowait` state, which can be observed using `top` or `htop`. This state indicates that the CPU is idle but waiting for disk operations to complete.
+   - **Cause:** Processes are forced to wait for the disk to complete I/O operations before they can proceed, leading to lower overall system efficiency as the CPU is underutilized.
+
+### **4. Slow File Operations**
+   - **Symptom:** Simple file operations, such as copying, moving, or deleting files, take an unusually long time to complete. This might be accompanied by excessive disk thrashing (the sound of constant disk activity).
+   - **Cause:** The disk is overwhelmed by excessive I/O, causing even simple file operations to be delayed.
+
+### **5. System Freezes or Hangs**
+   - **Symptom:** The entire system or specific applications may freeze, become unresponsive, or hang intermittently, especially during intensive disk operations like backups or large data transfers.
+   - **Cause:** Disk bottlenecks can prevent critical data from being read or written in a timely manner, which causes processes to stall and eventually hang as they wait for the disk to catch up.
+
+### **6. High Disk Queue Length**
+   - **Symptom:** Tools like `iostat` or Windows Performance Monitor show that the disk queue length is consistently high. This means there are too many I/O requests waiting to be processed.
+   - **Cause:** A high disk queue length indicates that the disk is receiving more I/O requests than it can handle simultaneously, leading to a bottleneck.
+
+### **7. Delayed Write Operations**
+   - **Symptom:** You may observe delayed write errors in system logs or applications that complain about slow writes or timeouts. Disk writes may appear to complete successfully but with noticeable delay.
+   - **Cause:** The disk's write cache may be full, or the system is waiting for previous writes to finish before it can commit new data to the disk.
+
+### **8. Increased Swap Usage**
+   - **Symptom:** The system begins to use swap space more frequently, even when there is sufficient free memory. This can be observed using `free -m` or `vmstat`.
+   - **Cause:** If the disk is slow, memory pages that are supposed to be written to disk may pile up, forcing the system to swap them out to free up space. This exacerbates the disk bottleneck and slows down the system even further.
+
+### **9. System Log Warnings**
+   - **Symptom:** Logs may show warnings or errors related to disk I/O performance. For example, messages like `disk I/O timeout`, `failed to write to disk`, or `buffer overflow` could appear.
+   - **Cause:** System logs can reveal low-level issues that may not be immediately visible but indicate the system is struggling with disk performance.
+
+### **10. High Latency on Network Storage**
+   - **Symptom:** When using network-attached storage (NAS) or a storage area network (SAN), you might experience high latency, slow mounts, or delayed data transfers.
+   - **Cause:** Disk bottlenecks are not limited to local disks. Network storage may also suffer from performance degradation due to disk I/O issues, especially if the underlying disk array is struggling to handle the load.
+
+### **Monitoring and Diagnostic Tools**
+   To confirm that disk bottlenecks are the root cause of the performance issues, use the following tools:
+
+   - **`iostat`:** Provides disk utilization, queue lengths, and I/O wait time metrics. Run `iostat -x` for extended statistics, including detailed device-level data.
+   - **`iotop`:** Real-time disk I/O monitoring tool, which shows which processes are consuming the most I/O.
+   - **`dstat`:** A versatile tool that provides detailed real-time system resource statistics, including disk I/O.
+   - **`vmstat`:** Displays information about processes, memory, paging, block I/O, and CPU activity.
+   - **`smartctl`:** A tool to monitor the health of the disk itself, useful for checking whether slowdowns are due to failing hardware.
+   - **`sar`:** Part of the `sysstat` package, it helps to collect, report, and save system activity, including disk I/O over time.
+
+### **Conclusion:**
+Disk bottlenecks can manifest as a wide range of symptoms, from slow application performance and high I/O wait times to system freezes and excessive swapping. By monitoring key indicators like disk utilization, queue length, and I/O wait times with tools such as `iostat`, `iotop`, and `vmstat`, you can diagnose and address disk-related performance issues. Proactively identifying and mitigating disk bottlenecks will help prevent system slowdowns, ensure smoother application performance, and improve overall system reliability.
 
 </details>
+
 
 <details>
 <summary><b>What is the meaning of the error <code>maxproc limit exceeded by uid %i ...</code> in FreeBSD?</b></summary><br>
@@ -4341,16 +4780,73 @@ Useful resources:
 
 </details>
 
+
 <details>
-<summary><b>The client reports that his site received a grade B in the ssllabs scanner. Prepare a checklist of best practice for ssl configuration. ***</b></summary><br>
+<summary><b>The client reports that his site received a grade B in the SSL Labs scanner. Prepare a checklist of best practices for SSL configuration. </b></summary><br>
+
+To achieve a higher grade (A or A+) in SSL Labs tests, it's essential to follow best practices for SSL/TLS configuration. Here is a checklist to ensure that your SSL setup is optimized for security and performance:
+
+### **1. Use a Strong TLS Version**
+   - **Disable TLS 1.0 and TLS 1.1**: These versions are considered weak and should be disabled.
+   - **Enable TLS 1.2 and TLS 1.3**: Ensure that your server supports these versions, as they are the most secure and widely accepted standards.
+
+### **2. Implement a Strong Cipher Suite**
+   - **Prioritize Strong Ciphers**: Ensure you are using strong cipher suites like `ECDHE-ECDSA-AES128-GCM-SHA256`, `ECDHE-RSA-AES128-GCM-SHA256`, and their equivalents for TLS 1.3.
+   - **Disable Weak Ciphers**: Disable weak ciphers such as `RC4`, `3DES`, `DES`, and ciphers with `MD5` hashing.
+
+### **3. Configure Forward Secrecy**
+   - **Use ECDHE or DHE Ciphers**: Ensure that your SSL configuration supports forward secrecy by using `ECDHE` or `DHE` ciphers.
+   - **Check for Key Exchange**: Ensure that key exchanges use elliptic curves (ECDHE) for better security and performance.
+
+### **4. Enable HSTS (HTTP Strict Transport Security)**
+   - **HSTS Header**: Implement HSTS by adding the `Strict-Transport-Security` header to your HTTP responses. A typical configuration looks like:
+     ```bash
+     Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+     ```
+   - **HSTS Preloading**: Register your domain for HSTS preloading to ensure that browsers only communicate over HTTPS by default.
+
+### **5. Use Secure Certificate Settings**
+   - **Certificates from a Trusted CA**: Use certificates from a trusted CA, such as Let's Encrypt, DigiCert, or GlobalSign.
+   - **Enable OCSP Stapling**: Reduce the overhead of certificate validation by enabling OCSP stapling on your server.
+   - **RSA Key Size**: Ensure your RSA key size is at least 2048 bits. For ECC certificates, use a minimum curve of `P-256`.
+
+### **6. Disable Weak Protocols**
+   - **Disable SSLv3 and SSLv2**: These outdated protocols are insecure and should be disabled.
+   - **Use Only Secure Protocols**: Ensure that only TLS 1.2 and TLS 1.3 are enabled in your SSL/TLS configuration.
+
+### **7. Implement Certificate Pinning**
+   - **Public Key Pinning (HPKP)**: Consider implementing HPKP to ensure that your clients only trust a predefined set of certificates, although this feature is used less frequently due to deployment risks.
+
+### **8. Secure Renegotiation**
+   - **Disable SSL Renegotiation**: Avoid potential vulnerabilities by disabling client-initiated SSL renegotiation.
+
+### **9. Enable Secure Cookie Settings**
+   - **Set `Secure` Flag**: Ensure that cookies are only sent over HTTPS connections by setting the `Secure` flag on cookies.
+   - **Set `HttpOnly` Flag**: Prevent client-side scripts from accessing cookies by using the `HttpOnly` flag.
+
+### **10. Enable Perfect Forward Secrecy**
+   - **Enable PFS**: Ensure that your SSL configuration uses key exchange mechanisms that provide perfect forward secrecy, protecting past sessions even if the private key is compromised in the future.
+
+### **11. Regularly Update OpenSSL/Nginx/Apache**
+   - **Keep Software Updated**: Ensure that your OpenSSL, Nginx, or Apache version is up to date with the latest security patches and bug fixes.
+
+### **12. Optimize SSL Performance**
+   - **Enable Session Resumption**: Use session tickets or session IDs to reduce handshake overhead for repeat visitors.
+   - **Tune SSL Buffer Settings**: Adjust SSL buffer size and tuning parameters to improve performance without compromising security.
+
+### **13. Enable DNSSEC**
+   - **DNSSEC**: Ensure that DNS records are protected from spoofing by enabling DNSSEC.
+
+### **Conclusion:**
+By following these best practices, you can improve your SSL Labs grade and ensure that your SSL/TLS configuration is secure, optimized, and compliant with modern standards.
 
 Useful resources:
-
 - [Getting a Perfect SSL Labs Score](https://michael.lustfield.net/nginx/getting-a-perfect-ssl-labs-score)
 - [17 small suggestions how to improve ssllabs.com/ssltest/](https://community.qualys.com/thread/14023)
 - [How do you score A+ with 100 on all categories on SSL Labs test with Let's Encrypt and Nginx?](https://stackoverflow.com/questions/41930060/how-do-you-score-a-with-100-on-all-categories-on-ssl-labs-test-with-lets-encry)
 
 </details>
+
 
 <details>
 <summary><b>What does CPU jumps mean?</b></summary><br>
@@ -4975,13 +5471,79 @@ rm ./-fr
 </details>
 
 <details>
-<summary><b>Write a simple bash script (or pair of scripts) to backup and restore your system. ***</b></summary><br>
+<summary><b>Write a simple bash script (or pair of scripts) to backup and restore your system. </b></summary><br>
 
-To be completed.
+Backing up and restoring a system is a critical part of system administration. The following are two simple bash scripts: one for **backup** and one for **restoration**. These scripts use `rsync` for efficient file transfer and copying, and they assume the source and destination directories are mounted and accessible.
+
+### **Backup Script (`backup.sh`)**
+This script will back up your entire system (or selected directories) to a specified backup directory. It preserves file permissions, symlinks, and other attributes while ensuring that only the changes are copied (thanks to `rsync`).
+
+```bash
+#!/bin/bash
+
+# Backup script
+
+# Define the source (root of the system or specific directories) and backup destination
+SOURCE="/"
+BACKUP_DEST="/mnt/backup"
+
+# Exclude paths that should not be backed up (e.g., /proc, /sys, /dev)
+EXCLUDE=(
+    --exclude="/proc/*"
+    --exclude="/sys/*"
+    --exclude="/dev/*"
+    --exclude="/run/*"
+    --exclude="/tmp/*"
+    --exclude="/mnt/*"
+    --exclude="/media/*"
+    --exclude="/lost+found"
+)
+
+# Create the backup using rsync with archive and verbose options
+rsync -avh --delete "${EXCLUDE[@]}" "$SOURCE" "$BACKUP_DEST"
+
+# Notify completion
+echo "Backup completed to $BACKUP_DEST."
+```
+### Explanation:
+- SOURCE: The source of the backup, usually / for a full system backup.
+- BACKUP_DEST: The destination of the backup, such as an external drive or mounted network share.
+- EXCLUDE: Paths that you want to exclude from the backup. It typically includes pseudo-filesystems like /proc, /sys, and temporary directories like /tmp.
+- rsync -avh --delete: This option ensures that files are copied with their attributes (-a), the operation is verbose (-v), human-readable format (-h), and files in the destination not present in the source are deleted (--delete).
+## Restore Script (restore.sh)
+This script will restore the system (or selected directories) from a backup directory back to the original source location.
+
+```bash
+#!/bin/bash
+
+# Restore script
+
+# Define the backup source and the system root (or target directories) to restore
+BACKUP_SOURCE="/mnt/backup"
+TARGET="/"
+
+# Restore the backup using rsync
+rsync -avh --delete "$BACKUP_SOURCE" "$TARGET"
+
+# Notify completion
+echo "System restored from $BACKUP_SOURCE to $TARGET."
+
+```
+
+## Explanation:
+- BACKUP_SOURCE: The directory where the backup is stored.
+- TARGET: The location where the backup will be restored, typically / to restore the whole system.
+rsync -avh --delete: This ensures that the backup files are copied back with attributes, and files in the target that are not present in the backup are removed.
+## Usage Notes:
+- Permissions: Ensure both scripts are executable by running chmod +x backup.sh restore.sh.
+- Running the Scripts: Run the backup.sh script to back up your system and restore.sh to restore it.
+- Mounting Backup Destination: Ensure the backup destination (e.g., external drive or network share) is mounted before running the scripts.
+- Testing: Always test these scripts in a non-production environment first to ensure they work as expected for your setup.
+- Backup Frequency: Schedule the backup.sh script to run regularly using cron for automated backups.
+These scripts provide a simple yet effective way to back up and restore your system, making use of rsync for efficient data transfer and synchronization.
 
 </details>
 
-<details>
 <summary><b>What are salted hashes? Generate the password with salt for the <code>/etc/shadow</code> file.</b></summary><br>
 
 **Salt** at its most fundamental level is random data. When a properly protected password system receives a new password, it will create a hashed value for that password, create a new random salt value, and then store that combined value in its database. This helps defend against dictionary attacks and known hash attacks.
@@ -5044,14 +5606,73 @@ python -c "import random,string,crypt; randomsalt = ''.join(random.sample(string
 ###### Network Questions (27)
 
 <details>
-<summary><b>Create SPF records for your site to help control spam. ***</b></summary><br>
+<summary><b>Create SPF records for your site to help control spam. </b></summary><br>
 
-To be completed.
+SPF (Sender Policy Framework) records are DNS TXT records that specify which mail servers are authorized to send email on behalf of your domain. By creating an SPF record, you help prevent email spoofing and improve the deliverability of legitimate emails. Here’s a step-by-step guide on how to create SPF records for your site.
+
+### **Step 1: Determine the Mail Servers Used by Your Domain**
+Before creating an SPF record, identify the mail servers that are authorized to send email on behalf of your domain. These could include:
+- Your web hosting provider’s mail servers.
+- Third-party services like Google Workspace, Microsoft 365, Mailchimp, SendGrid, etc.
+- Your organization's internal mail servers.
+
+For example:
+- Google Workspace: `include:_spf.google.com`
+- Microsoft 365: `include:spf.protection.outlook.com`
+- Mailchimp: `include:servers.mcsv.net`
+
+### **Step 2: Create the SPF Record**
+An SPF record is a DNS TXT record that defines a list of allowed mail servers. Here is an example of a simple SPF record: v=spf1 ip4:192.168.1.1 include:_spf.google.com include
+.protection.outlook.com -all
+
+
+Let’s break down the components:
+- `v=spf1`: Specifies the version of SPF being used (always start with this).
+- `ip4:192.168.1.1`: Authorizes a specific IP address to send email (replace with your actual mail server’s IP).
+- `include:_spf.google.com`: Authorizes Google’s servers to send email on behalf of your domain.
+- `include:spf.protection.outlook.com`: Authorizes Microsoft’s Office 365 servers to send email on behalf of your domain.
+- `-all`: This indicates a **hard fail**—email that doesn't match the rules should be rejected. Other possible options:
+  - `~all`: **Soft fail**, where non-compliant emails are marked as suspicious but still delivered.
+  - `?all`: **Neutral**, no specific action is taken for non-compliant emails.
+
+### **Step 3: Add the SPF Record to Your DNS**
+Once you’ve created the SPF record, add it to your domain’s DNS settings. Follow these steps:
+1. **Log into your DNS provider** (e.g., GoDaddy, Cloudflare, Namecheap, or your hosting provider's DNS management panel).
+2. **Locate the DNS Management Section**: Find where you manage DNS records for your domain.
+3. **Add a New TXT Record**: 
+   - **Name**: Enter your domain name or `@` for the root domain.
+   - **Type**: Select `TXT` for the record type.
+   - **Value**: Paste the SPF record (e.g., `v=spf1 include:_spf.google.com -all`).
+   - **TTL**: Set the TTL (Time to Live), often to 1 hour (3600 seconds) or leave it at the default value.
+4. **Save the Record**: Confirm and save your changes.
+
+### **Step 4: Verify Your SPF Record**
+After adding the SPF record to your DNS, it can take some time to propagate. Once it has propagated, you can verify your SPF record using tools like:
+- **MXToolbox SPF Lookup**: https://mxtoolbox.com/spf.aspx
+- **Google Admin Toolbox Dig**: https://toolbox.googleapps.com/apps/dig/
+- **Kitterman SPF Validator**: http://www.kitterman.com/spf/validate.html
+
+These tools will confirm whether the record is correctly configured and if your domain’s mail servers are properly authorized.
+
+### **Example SPF Record for Multiple Services**
+Suppose your domain sends email via your own mail server (IP address: 203.0.113.5), Google Workspace, and Mailchimp. Your SPF record would look like this: v=spf1 ip4:203.0.113.5 include:_spf.google.com include
+.mcsv.net -all
+
+
+### **Step 5: Monitor and Adjust as Needed**
+- Over time, if you add or change email services, you’ll need to update your SPF record. For example, if you start using a new email marketing platform, you’ll need to include its SPF entry in your DNS settings.
+- Regularly monitor your email deliverability and SPF compliance using DMARC reports, which can help identify any issues related to your SPF setup.
+
+### **Conclusion**
+SPF records play an essential role in email security by specifying which servers are allowed to send emails on behalf of your domain. By properly configuring an SPF record, you can help reduce email spoofing and improve your domain’s reputation with email providers, reducing the chances of your legitimate emails being marked as spam.
 
 </details>
 
+
+
+
 <details>
-<summary><b>What is the difference between an authoritative and a nonauthoritative answer to a DNS query? ***</b></summary><br>
+<summary><b>What is the difference between an authoritative and a nonauthoritative answer to a DNS query? </b></summary><br>
 
 An authoritative DNS query answer comes from the server that contains the zone files for the domain queried. This is the name server that the domain administrator set up the DNS records on. A nonauthoriative answer comes from a name server that does not host the domain zone files (for example, a commonly used name server has the answer cached such as Google's 8.8.8.8 or OpenDNS 208.67.222.222).
 
@@ -5095,19 +5716,220 @@ Useful resources:
 
 </details>
 
-<details>
-<summary><b>Explore the current MTA configuration at your site. What are some of the special features of the MTA that are in use? ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>Explore the current MTA configuration at your site. What are some of the special features of the MTA that are in use? </b></summary><br>
+
+Exploring the configuration of the Mail Transfer Agent (MTA) at your site involves inspecting the mail server software that is responsible for sending, receiving, and routing emails. Depending on the MTA in use (e.g., Postfix, Exim, Sendmail, etc.), different special features may be enabled to enhance performance, security, and reliability. Here’s a guide on how to explore the MTA configuration and identify some of the advanced features that might be in use.
+
+### **Step 1: Identify the MTA in Use**
+The first step is to determine which MTA is running on your system. You can do this by checking the active services or querying the mail system configuration.
+
+- **Check Active MTA:**
+  ```bash
+  sudo systemctl status postfix
+  sudo systemctl status exim
+  sudo systemctl status sendmail
+  ```
+  - The above commands will help identify if Postfix, Exim, or Sendmail (or another MTA) is running on your system.
+
+- **Query the Installed MTA:**
+  ```bash
+  sudo netstat -tlnp | grep :25
+  ```
+  - This command will show which process is listening on port 25 (the SMTP port) and will reveal the active MTA.
+
+### **Step 2: Explore the MTA Configuration**
+
+Once you know which MTA is in use, you can explore its configuration files to identify special features that are enabled. Below are the common locations of configuration files for popular MTAs:
+
+- **Postfix:** `/etc/postfix/main.cf` and `/etc/postfix/master.cf`
+- **Exim:** `/etc/exim/exim.conf` or `/etc/exim4/exim4.conf`
+- **Sendmail:** `/etc/mail/sendmail.cf` or `/etc/mail/sendmail.mc`
+
+You can view and edit these files using `cat`, `less`, or any text editor like `vi` or `nano`:
+```bash
+sudo less /etc/postfix/main.cf
+```
+
+### **Step 3: Identify Special Features in Use**
+Depending on the MTA, various special features could be in use. Below are some common features that might be configured in the MTA:
+
+#### **1. TLS Encryption (STARTTLS)**
+- **Feature:** Securing email transmissions using TLS encryption is a critical feature of modern MTAs. This ensures that emails are encrypted in transit between MTAs.
+- **Configuration Example (Postfix):**
+  ```bash
+  smtpd_tls_cert_file = /etc/ssl/certs/postfix.pem
+  smtpd_tls_key_file = /etc/ssl/private/postfix.key
+  smtpd_use_tls = yes
+  smtp_tls_security_level = may
+  ```
+  - This configuration ensures that Postfix uses TLS encryption for outgoing and incoming email communications.
+
+#### **2. Authentication (SASL)**
+- **Feature:** Many MTAs enable Simple Authentication and Security Layer (SASL) to ensure that clients are authenticated before they are allowed to send email. This is especially important for preventing open relay issues.
+- **Configuration Example (Postfix with Dovecot):**
+  ```bash
+  smtpd_sasl_auth_enable = yes
+  smtpd_sasl_type = dovecot
+  smtpd_sasl_path = private/auth
+  smtpd_sasl_security_options = noanonymous
+  smtpd_sasl_local_domain = $myhostname
+  smtpd_sasl_authenticated_header = yes
+  ```
+  - This setup ensures that only authenticated users can relay mail through the server, adding an additional layer of security.
+
+#### **3. Anti-Spam and Anti-Virus Filtering**
+- **Feature:** MTAs often integrate with external anti-spam and anti-virus tools like `SpamAssassin`, `Amavis`, or `ClamAV` to filter out unwanted and malicious email before delivery.
+- **Configuration Example (Postfix with Amavis):**
+  ```bash
+  content_filter = amavis:[127.0.0.1]:10024
+  ```
+  - This configuration forwards emails to Amavis for spam and virus scanning before final delivery.
+
+#### **4. Virtual Mailbox Domains**
+- **Feature:** Virtual mailbox domains allow the MTA to handle email for multiple domains without requiring local Unix user accounts for each email address. This is common in hosting environments where one server handles email for many different domains.
+- **Configuration Example (Postfix):**
+  ```bash
+  virtual_mailbox_domains = example.com, anotherdomain.com
+  virtual_mailbox_base = /var/mail/vhosts
+  virtual_mailbox_maps = hash:/etc/postfix/vmailbox
+  virtual_alias_maps = hash:/etc/postfix/virtual
+  ```
+  - This setup allows Postfix to handle email for multiple domains, storing the emails in a virtual directory structure.
+
+#### **5. Greylisting**
+- **Feature:** Greylisting is an anti-spam technique where incoming mail from unknown senders is temporarily rejected with a "try again later" message. Legitimate servers will retry, but many spammers won’t, which helps reduce spam volume.
+- **Configuration Example (Postfix with Postgrey):**
+  ```bash
+  smtpd_recipient_restrictions =
+      permit_mynetworks,
+      permit_sasl_authenticated,
+      reject_unauth_destination,
+      check_policy_service inet:127.0.0.1:10023
+  ```
+  - Postfix uses `Postgrey` to greylist incoming emails from unknown senders.
+
+#### **6. DKIM (DomainKeys Identified Mail)**
+- **Feature:** DKIM allows outgoing emails to be signed with a cryptographic signature that proves the email came from the domain it claims to come from. This improves email deliverability and trustworthiness.
+- **Configuration Example (Postfix with OpenDKIM):**
+  ```bash
+  milter_default_action = accept
+  milter_protocol = 6
+  smtpd_milters = inet:localhost:8891
+  non_smtpd_milters = inet:localhost:8891
+  ```
+  - This configuration integrates `OpenDKIM` to sign outgoing messages and verify DKIM signatures on incoming messages.
+
+### **Step 4: Monitor MTA Performance and Logs**
+To further understand how the MTA operates and which features are being used, review the mail logs. Logs can be found in `/var/log/mail.log`, `/var/log/maillog`, or similar files depending on your system.
+
+- **View mail logs:**
+  ```bash
+  sudo tail -f /var/log/mail.log
+  ```
+
+- **Look for specific entries related to special features:**
+  - TLS handshake entries for encrypted sessions.
+  - SASL authentication success/failure logs.
+  - Spam and virus filtering decisions.
+  - Greylisting decisions (e.g., temporary rejections).
+
+### **Conclusion**
+By exploring the MTA configuration files and associated logs, you can identify which special features are in use, such as TLS encryption, SASL authentication, anti-spam filtering, and DKIM signing. These features help secure, optimize, and improve the reliability of email delivery for your organization. Understanding these configurations allows you to make informed decisions about optimizing and securing your mail infrastructure.
 
 </details>
 
-<details>
-<summary><b>How to find a domain based on the IP address? What techniques/tools can you use? ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>How to find a domain based on the IP address? What techniques/tools can you use? </b></summary><br>
+
+Finding a domain name based on an IP address is a common task in network administration and troubleshooting. This process, known as **reverse DNS lookup**, can be accomplished using several tools and techniques. Here's how you can approach this task:
+
+### **1. Reverse DNS Lookup Using `dig`**
+   The `dig` (Domain Information Groper) tool is one of the most powerful DNS query utilities. It can perform reverse DNS lookups, which allow you to find the domain name associated with a given IP address.
+
+   - **Command:**
+     ```bash
+     dig -x <IP_address>
+     ```
+   - **Explanation:**
+     The `-x` flag triggers a reverse DNS lookup. The output will provide the domain name associated with the IP address (if available).
+
+   - **Example:**
+     ```bash
+     dig -x 8.8.8.8
+     ```
+     This will return the domain name `dns.google` for Google's public DNS IP.
+
+### **2. Using `nslookup`**
+   Another simple and commonly used tool for reverse DNS lookups is `nslookup`. This command-line utility queries DNS to obtain domain name or IP address mapping.
+
+   - **Command:**
+     ```bash
+     nslookup <IP_address>
+     ```
+   - **Example:**
+     ```bash
+     nslookup 8.8.8.8
+     ```
+     This will return `dns.google`, Google's public DNS domain.
+
+### **3. Using `host` Command**
+   The `host` command is another basic DNS lookup utility that can resolve IP addresses to domain names via reverse DNS.
+
+   - **Command:**
+     ```bash
+     host <IP_address>
+     ```
+   - **Example:**
+     ```bash
+     host 8.8.8.8
+     ```
+     This will also resolve Google's DNS IP to `dns.google`.
+
+### **4. Reverse DNS Lookup Using Online Tools**
+   There are numerous online services that allow you to perform reverse DNS lookups without using the command line. Some popular ones include:
+   - [MXToolbox Reverse Lookup](https://mxtoolbox.com/ReverseLookup.aspx)
+   - [DNSstuff](https://www.dnsstuff.com/)
+   - [WhatsMyDNS](https://www.whatsmydns.net/)
+
+   These services allow you to enter an IP address and return the corresponding domain name if one is configured.
+
+### **5. Checking PTR Records**
+   Reverse DNS lookups are facilitated by **PTR records** (Pointer records) in the DNS. These records map an IP address back to a domain name. To check the PTR records directly, you can use `dig` or `nslookup` as described above, or manually inspect the DNS zone file for PTR entries (if you have access).
+
+### **6. WHOIS Lookup**
+   If reverse DNS lookups do not yield a domain, you can use a **WHOIS** lookup to gather more information about the IP address, including the organization that owns it. While WHOIS won't necessarily provide a domain name, it can help identify the company or individual that registered the IP block.
+
+   - **Command:**
+     ```bash
+     whois <IP_address>
+     ```
+   - **Example:**
+     ```bash
+     whois 8.8.8.8
+     ```
+     This command will display information about the owner of the IP block, in this case, Google.
+
+### **7. Traceroute/Tracert**
+   Sometimes, using `traceroute` (Linux/macOS) or `tracert` (Windows) can reveal the domain associated with an IP address by tracing the network hops to the destination.
+
+   - **Command:**
+     ```bash
+     traceroute <IP_address>
+     ```
+   - **Example:**
+     ```bash
+     traceroute 8.8.8.8
+     ```
+     This will show the route packets take to reach Google's DNS server, potentially revealing hostnames or domain names along the path.
+
+### **Conclusion:**
+Using tools like `dig`, `nslookup`, `host`, and WHOIS, or by employing online reverse lookup services, you can efficiently determine the domain name associated with an IP address. While the availability of reverse DNS records depends on how the domain or IP owner has configured their DNS, these techniques generally provide valuable insights into the identity of the domain behind the IP.
 
 </details>
+
 
 <details>
 <summary><b>Is it possible to have SSL certificate for IP address, not domain name?</b></summary><br>
@@ -5125,18 +5947,94 @@ Useful resources:
 
 </details>
 
-<details>
-<summary><b>How do you do load testing and capacity planning for websites? ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>How do you do load testing and capacity planning for websites? </b></summary><br>
+
+Load testing and capacity planning are critical aspects of ensuring that a website can handle traffic efficiently and maintain optimal performance under different conditions. Here's a detailed approach to both processes:
+
+### **Step 1: Define Performance Goals and Metrics**
+Before conducting load tests, define what "performance" means for your website. Some key metrics include:
+- **Response time:** How long it takes the server to respond to a request.
+- **Throughput:** The number of requests the server can handle per second.
+- **Error rates:** Percentage of failed requests under load.
+- **Scalability:** How well the system handles an increasing number of concurrent users.
+
+Set specific benchmarks for these metrics to understand the expected performance thresholds.
+
+### **Step 2: Identify Key Scenarios**
+Identify the most common or resource-intensive use cases of your website, such as:
+- Browsing the homepage
+- Conducting searches
+- Submitting forms
+- Downloading large files
+- Handling payments (if applicable)
+
+Each scenario may stress different parts of your infrastructure (e.g., database, application servers, CDN).
+
+### **Step 3: Choose the Right Tools for Load Testing**
+Several tools can simulate traffic and monitor how your website behaves under load. Popular load testing tools include:
+
+- **Apache JMeter:** A comprehensive tool that supports a variety of protocols for load testing.
+- **Gatling:** A powerful tool for simulating heavy traffic loads, especially for APIs and web applications.
+- **k6:** A modern load-testing tool that is scriptable and widely used for performance testing of APIs and microservices.
+- **Locust:** Python-based load testing tool ideal for websites and APIs.
+- **Blazemeter:** A cloud-based service that integrates with JMeter and supports distributed load testing.
+
+### **Step 4: Simulate Traffic Patterns**
+Use the chosen tool to simulate different levels of traffic. There are typically three types of load tests:
+
+- **Baseline Testing:** Test with typical traffic levels to establish performance under normal conditions.
+- **Stress Testing:** Gradually increase the load until the system begins to fail. This helps identify bottlenecks and understand the breaking points.
+- **Spike Testing:** Simulate sudden spikes in traffic, which can occur during events like flash sales or marketing campaigns.
+
+For example, using Apache JMeter:
+```bash
+jmeter -n -t testplan.jmx -l results.jtl
+```
+This command runs the specified test plan (`testplan.jmx`) and outputs results to `results.jtl`.
+
+### **Step 5: Analyze Results and Bottlenecks**
+After conducting the load tests, analyze the results to identify performance bottlenecks. Common bottlenecks include:
+- **CPU:** High CPU usage, indicating that the server cannot process requests quickly enough.
+- **Memory:** Out of memory errors that cause crashes or slow response times.
+- **Disk I/O:** High disk read/write operations, particularly for database-backed websites.
+- **Network:** Saturated network bandwidth leading to delays in content delivery.
+
+Tools like **New Relic**, **Datadog**, and **Prometheus** can help monitor system resources and application performance during load tests.
+
+### **Step 6: Capacity Planning**
+Capacity planning involves determining the resources (hardware, bandwidth, etc.) required to support current and future traffic demands. This requires analyzing historical data, load test results, and traffic projections.
+
+- **Vertical Scaling:** Add more resources (CPU, memory) to existing servers to handle increased load.
+- **Horizontal Scaling:** Add more servers to distribute the load across a larger infrastructure, commonly used in distributed or cloud environments.
+
+Use a formula like the following to estimate capacity:
+```markdown
+Required Capacity = (Peak Traffic * Avg. Request Size) / System Throughput
+```
+Factor in redundancy and failover plans to ensure high availability.
+
+### **Step 7: Implement Auto-Scaling (Cloud Environments)**
+If you're using a cloud provider like AWS, GCP, or Azure, auto-scaling allows your infrastructure to automatically scale up or down based on load. This helps handle traffic spikes without over-provisioning resources during idle times.
+
+- **AWS Auto Scaling:** Automatically adjusts the number of EC2 instances based on load.
+- **Azure Autoscale:** Scales VMs or App Services based on traffic.
+- **Google Cloud Auto-scaler:** Adjusts the number of instances in response to changing load.
+
+### **Step 8: Continuous Monitoring and Testing**
+Load testing and capacity planning are not one-time processes. Continuously monitor performance and repeat load testing as your website evolves (e.g., new features, increased traffic). Use APM (Application Performance Monitoring) tools to track real-time metrics and respond proactively to issues.
+
+### **Conclusion:**
+Load testing and capacity planning are essential to ensuring your website can handle traffic spikes, maintain performance, and scale effectively. By using the right tools, analyzing results, and planning for future growth, you can optimize the performance and reliability of your web infrastructure.
 
 Useful resources:
-
 - [How do you do load testing and capacity planning for web sites? (original)](https://serverfault.com/questions/350454/how-do-you-do-load-testing-and-capacity-planning-for-web-sites)
 - [Can you help me with my capacity planning?](https://serverfault.com/questions/384686/can-you-help-me-with-my-capacity-planning)
 - [How do you do load testing and capacity planning for databases?](https://serverfault.com/questions/350458/how-do-you-do-load-testing-and-capacity-planning-for-databases)
 
 </details>
+
 
 <details>
 <summary><b>Developer reports a problem with connectivity to the remote service. Use <code>/dev</code> for troubleshooting.</b></summary><br>
@@ -5196,17 +6094,69 @@ What this does:
 
 </details>
 
-<details>
-<summary><b>You need to move ext4 journal on another disk/partition. What are the reasons for this? ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>You need to move ext4 journal on another disk/partition. What are the reasons for this? </b></summary><br>
+
+Moving the ext4 journal to another disk or partition can provide performance benefits and increase the reliability of your file system. Here’s why and how you would do it.
+
+### **Reasons for Moving the ext4 Journal:**
+1. **Performance Optimization:**
+   - The journal on an ext4 filesystem is a special area used to keep track of changes that will be made to the file system. By moving the journal to a faster disk (such as an SSD), you can significantly improve write performance. This is especially beneficial in write-heavy environments like databases, file servers, or virtual machines.
+
+2. **I/O Separation:**
+   - Separating the journal from the main file system disk allows the main disk to focus on data reads and writes, while the external disk handles the journal. This separation can lead to reduced contention for I/O operations, thereby increasing the overall system throughput.
+
+3. **Reliability:**
+   - Placing the journal on a dedicated and more reliable disk can provide additional protection against disk failures. If the journal is kept on a more robust disk, the chances of losing critical journal data during power outages or system crashes are reduced.
+
+4. **Disk Wear Distribution:**
+   - Journaling can lead to increased write operations on the disk. By moving the journal to a separate disk, you distribute the wear across multiple devices, potentially prolonging the life of both the main disk and the journal disk.
+
+### **How to Move ext4 Journal to Another Disk:**
+
+Here are the steps to move an ext4 journal to an external device:
+
+1. **Create the External Journal Device:**
+   - Use `mke2fs` to create an external journal on the new device (e.g., `/dev/sdb1`):
+   ```bash
+   mke2fs -O journal_dev /dev/sdb1
+   ```
+
+2. **Attach the External Journal to Your ext4 Filesystem:**
+   - Use `tune2fs` to attach the external journal to your existing filesystem (e.g., `/dev/sda1`):
+   ```bash
+   tune2fs -O ^has_journal /dev/sda1
+   tune2fs -J device=/dev/sdb1 /dev/sda1
+   ```
+
+3. **Mount the Filesystem with the External Journal:**
+   - Ensure that your filesystem is mounted with the external journal. You can specify the external journal using the `-o` option:
+   ```bash
+   mount -o journal=/dev/sdb1 /dev/sda1 /mnt/myfilesystem
+   ```
+
+4. **Update `/etc/fstab` to Automate Mounting:**
+   - To ensure that the external journal is used after rebooting, update `/etc/fstab` with the following entry:
+   ```bash
+   /dev/sda1  /mnt/myfilesystem  ext4  defaults,journal=/dev/sdb1  0  2
+   ```
+
+5. **Verify the Setup:**
+   - Verify that the external journal is being used with the following command:
+   ```bash
+   dumpe2fs /dev/sda1 | grep -i journal
+   ```
+
+### **Conclusion:**
+Moving the ext4 journal to another disk or partition can provide significant performance gains, especially in high-write environments. It can also help in distributing I/O load and increasing the reliability of your system by using a dedicated, more reliable device for the journal. However, it's essential to carefully choose the external disk and ensure proper configuration to avoid any data loss or corruption.
 
 Useful resources:
-
 - [ext4: using external journal to optimize performance](https://raid6.com.au/posts/fs_ext4_external_journal/)
 - [How to move an ext4 journal](https://unix.stackexchange.com/questions/278998/how-to-move-an-ext4-journal)
 
 </details>
+
 
 <details>
 <summary><b>Does having Varnish in front of your website/app mean you don't need to care about load balancing or redundancy?</b></summary><br>
@@ -5231,12 +6181,47 @@ Useful resources:
 
 </details>
 
-<details>
-<summary><b>What is a reasonable TTL for cached content given the following parameters? ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>What is a reasonable TTL for cached content given the following parameters? </b></summary><br>
+
+Determining a reasonable Time-to-Live (TTL) for cached content is crucial for balancing content freshness and performance. The TTL value dictates how long content should be kept in cache before it expires and is refreshed from the origin server. Various factors influence the ideal TTL setting, including the frequency of content changes, the type of content, and performance considerations.
+
+### **Factors to Consider for Setting a Reasonable TTL**
+
+1. **Content Volatility:**
+   - **Highly Dynamic Content:** Pages or data that change frequently, such as user dashboards, stock prices, or news headlines, require a low TTL to ensure users always receive the latest information. A TTL of **30 seconds to 5 minutes** is typical for such content.
+   - **Moderately Dynamic Content:** Content like blogs, product pages, or article comments that change periodically can have a TTL ranging from **1 hour to 24 hours**. This allows for frequent updates while minimizing server load.
+   - **Static Content:** Content that rarely changes (e.g., images, CSS, JavaScript files) can have a long TTL, often ranging from **1 week to 1 year**. This improves performance by minimizing requests to the origin server.
+
+2. **Traffic Patterns and User Experience:**
+   - **High Traffic Sites:** For websites experiencing high traffic, a longer TTL (where appropriate) can significantly reduce the load on the origin server. This leads to faster page loads and reduced latency for end-users.
+   - **User Experience Impact:** Shorter TTLs ensure fresher content but can increase the load on the server and cause more frequent cache invalidations, potentially impacting page load times. Balancing TTLs based on user expectations and criticality of freshness is important.
+
+3. **Backend Capacity and Scalability:**
+   - The ability of the origin server to handle frequent requests also plays a role. If the backend infrastructure is robust, a shorter TTL may be viable. However, for systems with limited resources, a longer TTL can prevent the server from being overwhelmed.
+
+4. **Content Type and SEO Considerations:**
+   - **SEO Impact:** For content that is frequently crawled by search engines, ensuring proper TTL values is important. Too short a TTL can lead to unnecessary cache invalidations, while too long a TTL could serve outdated content to crawlers. A TTL of **24 to 48 hours** is often a good compromise for SEO-sensitive content.
+   - **Critical Updates:** For critical content such as legal notices, pricing pages, or security-related updates, shorter TTLs are essential to ensure information is up-to-date.
+
+5. **Edge and Browser Cache Considerations:**
+   - **Edge Caching (CDN):** When using a CDN, cache duration should be synchronized across edge nodes. A typical CDN cache TTL for static assets is **1 week to 1 year**, depending on how frequently the assets change.
+   - **Browser Cache:** For browser caching, headers such as `Cache-Control` or `Expires` can be set with a TTL that aligns with the expected update frequency of the content. Shorter TTLs may be appropriate for user-generated content, while longer TTLs are suited for static assets.
+
+### **Examples of Reasonable TTLs**
+
+- **Highly Dynamic Data (e.g., stock prices, real-time data):** **30 seconds to 5 minutes**
+- **Moderately Dynamic Data (e.g., blog posts, product pages):** **1 hour to 24 hours**
+- **Static Assets (e.g., images, CSS, JS):** **1 week to 1 year**
+- **API Responses (dependent on API usage patterns):** **1 minute to 1 hour**
+
+### **Conclusion**
+
+Setting an appropriate TTL for cached content depends on content volatility, user experience expectations, backend capacity, SEO concerns, and the caching mechanism (CDN or browser). By carefully balancing these factors, you can optimize performance and ensure that users receive fresh, relevant content without overloading your servers.
 
 </details>
+
 
 <details>
 <summary><b>Developer says: <i><code>htaccess</code> is full of magic and it should be used</i>. What is your opinion about using <code>htaccess</code> files? How has this effect on the web app</b></summary><br>
@@ -5320,12 +6305,81 @@ If there is a cookie set, then the browser sends the following in its request he
 
 </details>
 
-<details>
-<summary><b>How to prevent processing requests in web server with undefined server names? No defined default server name rule can be security issue? ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>How to prevent processing requests in web server with undefined server names? No defined default server name rule can be a security issue? </b></summary><br>
+
+When a web server is configured to accept requests without specifying a server name (or if there is no defined default server), this can lead to potential security issues. These issues include serving unintended content, increased exposure to attacks, and information leakage. Here’s how you can prevent processing requests with undefined server names and why failing to do so can pose security risks.
+
+### **Why Not Defining a Default Server is a Security Risk**
+1. **Serving Unintended Content:** 
+   - If the web server does not have a specific server name rule defined, it might serve the content of the first matching virtual host (or a default server block), which may expose sensitive or unrelated data.
+   - For instance, if an attacker sends a request to the IP address of your server without specifying a proper domain name, the server might respond with an unexpected website or application, exposing unintended content.
+
+2. **Information Leakage:**
+   - Undefined server names may cause the server to reveal details about its configuration or default pages, which could expose information useful to attackers. This is especially dangerous if sensitive information or development sites are inadvertently exposed.
+
+3. **Increased Attack Surface:**
+   - Attackers may attempt to exploit misconfigurations, such as accessing internal sites or services through undefined server names, which could lead to unauthorized access or data leaks.
+
+### **How to Prevent Processing Requests with Undefined Server Names**
+
+1. **Define a Default Virtual Host (Server Block) with a Catch-All Rule:**
+   - By configuring a default server block that handles all undefined server names, you can ensure that such requests are directed to a generic response page or denied altogether. This helps prevent the server from unintentionally exposing unintended content.
+   
+   - **Example Configuration (Nginx):**
+     ```nginx
+     server {
+         listen 80 default_server;
+         server_name _;
+         return 444;
+     }
+     ```
+     - This configuration ensures that any request without a defined server name will return a 444 status code (which is a non-standard response indicating no response should be sent back).
+
+   - **Example Configuration (Apache):**
+     ```apache
+     <VirtualHost *:80>
+         ServerName default
+         <Location />
+             Require all denied
+         </Location>
+     </VirtualHost>
+     ```
+     - This configuration blocks access to any request that does not match a defined server name.
+
+2. **Strict Server Name Checking:**
+   - Configure your web server to strictly check for valid server names. Ensure that only specific domains are accepted, and any undefined server names are rejected. This can be done by avoiding wildcard server name matching unless necessary.
+
+3. **Disable Default Virtual Hosts (Apache):**
+   - In Apache, disabling the default virtual host prevents the server from responding to unknown server names.
+   - This can be achieved by removing or disabling the default configuration file (`000-default.conf`) and ensuring that all sites are mapped to specific virtual hosts with proper `ServerName` definitions.
+
+4. **Use IP Address Blocking or Redirects:**
+   - To avoid processing requests sent directly to the server’s IP address, you can configure a redirect or block such requests entirely.
+
+   - **Example Configuration (Nginx):**
+     ```nginx
+     server {
+         listen 80;
+         server_name _;
+         return 403;
+     }
+     ```
+
+   - **Example Configuration (Apache):**
+     ```apache
+     <VirtualHost *:80>
+         ServerName 123.45.67.89
+         Redirect permanent / http://example.com/
+     </VirtualHost>
+     ```
+
+### **Conclusion**
+Failing to define proper server names and default server blocks can expose your web server to security vulnerabilities. By ensuring that all requests are routed to the appropriate virtual hosts, denying or properly handling undefined server names, and avoiding the use of wildcard server names, you can mitigate the risk of information leakage, unauthorized access, and other potential security threats.
 
 </details>
+
 
 <details>
 <summary><b>You should rewrite POST with payload to an external API but the POST requests loose the parameters passed on the URL. How to fix this problem (e.g. in Nginx) and what are the reasons for this behavior?</b></summary><br>
@@ -5616,12 +6670,73 @@ Below are the advantages of containerization over virtualization:
 
 </details>
 
-<details>
-<summary><b>Is the way of distributing Docker apps (e.g. Apache, MySQL) from Docker Hub is good for production environments? Describe security problems and possible solutions. ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>Is the way of distributing Docker apps (e.g. Apache, MySQL) from Docker Hub good for production environments? Describe security problems and possible solutions. </b></summary><br>
+
+Distributing Docker apps such as Apache, MySQL, and others from Docker Hub can provide a streamlined and efficient workflow for setting up development and testing environments. However, when it comes to production environments, several security issues arise that need to be carefully considered.
+
+### **Security Problems Associated with Docker Hub Images:**
+
+1. **Trustworthiness of Public Images:**
+   - **Problem:** Docker Hub contains a wide variety of images, both official and community-contributed. While official images are generally maintained by trusted organizations, community images may lack scrutiny, quality control, and security measures.
+   - **Risk:** Community-contributed images may contain vulnerabilities, backdoors, or outdated software versions that have not been audited properly.
+
+2. **Image Vulnerabilities:**
+   - **Problem:** Even official images can have vulnerabilities if they are not regularly updated. A large percentage of Docker images pulled from Docker Hub have known vulnerabilities, which could be exploited in production environments.
+   - **Risk:** Running outdated software in production increases the likelihood of security breaches. For instance, an outdated version of MySQL may have known exploits that could lead to unauthorized access or data loss.
+
+3. **Supply Chain Attacks:**
+   - **Problem:** A Docker image is often built upon several base images or layers. If any layer in the image chain is compromised, it can affect the entire image.
+   - **Risk:** If a base image is compromised, attackers could inject malicious code or exploit vulnerabilities in downstream containers, leading to security breaches in production systems.
+
+4. **Lack of Image Validation and Scanning:**
+   - **Problem:** Docker Hub does not enforce mandatory security scanning for all images. While some images undergo automated scanning, not all of them are scrutinized for vulnerabilities or misconfigurations.
+   - **Risk:** Without proper scanning, images with security issues can easily make their way into production environments, putting the entire infrastructure at risk.
+
+5. **Misconfigured Containers:**
+   - **Problem:** Many images are distributed with default settings that are not optimized for security. Default passwords, unnecessary services, and excessive privileges can be present in publicly available images.
+   - **Risk:** Running containers with misconfigurations in production can expose the application to attacks such as privilege escalation, unauthorized access, and data leaks.
+
+### **Solutions for Securing Docker Apps in Production:**
+
+1. **Use Official or Trusted Images Only:**
+   - **Solution:** Stick to using only official images from Docker Hub, which are maintained by the developers of the software. Official images are more likely to receive updates and security patches in a timely manner.
+   - **Action:** Verify the authenticity of images by checking for the "Verified Publisher" badge and ensuring that the image is maintained by a trusted source.
+
+2. **Implement Image Scanning:**
+   - **Solution:** Use image scanning tools like **Clair**, **Anchore**, **Trivy**, or Docker Hub’s built-in scanning features to detect vulnerabilities before deploying images to production.
+   - **Action:** Integrate vulnerability scanning into your CI/CD pipeline to ensure that images are checked for security issues before deployment.
+
+3. **Build Custom Images:**
+   - **Solution:** Instead of relying solely on public images, build custom Docker images that are optimized for security. By creating your own base images, you can control exactly what goes into the image and ensure that unnecessary services or dependencies are removed.
+   - **Action:** Use minimal base images like **Alpine Linux** or **Distroless** to reduce the attack surface and ensure that only essential components are included.
+
+4. **Use Docker Content Trust (DCT):**
+   - **Solution:** Enable Docker Content Trust (DCT) to verify the integrity and authenticity of Docker images. This ensures that you only pull signed images from Docker Hub, preventing unauthorized modifications.
+   - **Action:** Set the `DOCKER_CONTENT_TRUST=1` environment variable to enforce the use of signed images in your production environment.
+
+5. **Enforce Least Privilege Principle:**
+   - **Solution:** Configure containers to run with the least privileges necessary for their function. Avoid running containers as root, and instead use non-root users to minimize the impact of potential security breaches.
+   - **Action:** Use the `USER` directive in Dockerfiles to set up non-root users. Additionally, restrict container capabilities using Docker security profiles such as **AppArmor** or **seccomp**.
+
+6. **Regularly Update and Patch Containers:**
+   - **Solution:** Regularly update Docker images to ensure that any known vulnerabilities are patched in a timely manner. Monitor security bulletins for updates to the software you are using.
+   - **Action:** Set up an automated process to rebuild and redeploy containers when new versions of the base images or software are released.
+
+7. **Network Isolation and Firewall Rules:**
+   - **Solution:** Use Docker’s network isolation features to restrict communication between containers. Employ firewall rules to prevent unauthorized access to containers from outside the network.
+   - **Action:** Configure Docker networks appropriately and restrict access using tools like `iptables` or external firewalls.
+
+8. **Harden the Host Operating System:**
+   - **Solution:** Ensure that the underlying host OS running Docker is properly hardened. This includes applying security patches, disabling unnecessary services, and using security features like SELinux or AppArmor.
+   - **Action:** Follow best practices for securing the Docker host, such as using CIS benchmarks and deploying monitoring tools to detect potential breaches.
+
+### **Conclusion:**
+While Docker Hub offers a convenient way to distribute and deploy applications in containers, security should be a top priority when using these images in production. By following the outlined security measures—using trusted images, scanning for vulnerabilities, building custom images, enforcing the principle of least privilege, and maintaining an updated and secure infrastructure—you can minimize the risks and ensure that your production environment remains secure.
 
 </details>
+
 
 <details>
 <summary><b>Some of the common use cases of LXC and LXD come from the following requirements... Explain.</b></summary><br>
@@ -5661,12 +6776,47 @@ Useful resources:
 
 ###### Cyber Security Questions (5)
 
-<details>
-<summary><b>What is OWASP Application Security Verification Standard? Explain in a few points. ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>What is OWASP Application Security Verification Standard? Explain in a few points. </b></summary><br>
+
+The OWASP Application Security Verification Standard (ASVS) is a framework that provides a basis for testing web application security controls and ensuring secure development. It offers detailed security requirements that can be used by developers, architects, security testers, and others involved in creating and managing secure web applications. Here are some key points about the OWASP ASVS:
+
+### **Key Points of OWASP ASVS:**
+
+1. **Purpose and Scope:**
+   - The ASVS provides a comprehensive set of security requirements that are categorized into different levels of assurance. It aims to help organizations design, build, and test secure applications by providing a baseline of security practices.
+
+2. **Security Levels:**
+   - ASVS defines three security levels based on the degree of security required:
+     - **Level 1:** For applications where security is not a primary concern. This level ensures basic security hygiene.
+     - **Level 2:** For applications handling sensitive data, requiring defense against a broader range of threats.
+     - **Level 3:** For applications requiring the highest level of security, such as critical systems or applications handling highly sensitive data.
+
+3. **Categories of Security Controls:**
+   - The ASVS is organized into 14 categories, each representing a different area of application security, such as:
+     - Authentication
+     - Access Control
+     - Data Validation
+     - Cryptography
+     - Error Handling and Logging
+     - Security Architecture
+     - API Security
+
+4. **Verification Activities:**
+   - The ASVS defines specific verification activities that should be performed to ensure that the security controls are implemented correctly. These verification activities are detailed for each level and cover common vulnerabilities like SQL Injection, XSS, and authentication flaws.
+
+5. **Usage Scenarios:**
+   - ASVS can be used as a benchmark for secure software development, as a guide for building secure applications, or as a standard for performing security assessments and penetration tests. It is useful for both development teams and security professionals.
+
+6. **Alignment with Industry Standards:**
+   - ASVS aligns with many industry standards and regulations, such as GDPR, PCI-DSS, and ISO 27001, making it easier for organizations to meet compliance requirements while focusing on security.
+
+### **Conclusion:**
+OWASP ASVS is a powerful standard that provides organizations with a clear framework to secure their web applications through well-defined security controls and verification practices. It is especially useful for development teams and security professionals working on applications that need to meet varying levels of security assurance.
 
 </details>
+
 
 <details>
 <summary><b>What is CSRF?</b></summary><br>
@@ -5721,12 +6871,51 @@ Useful resources:
 
 ### :diamond_shape_with_a_dot_inside: <a name="guru-sysadmin">Guru Sysadmin</a>
 
-<details>
-<summary><b>Explain what is Event-Driven architecture and how it improves performance? ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>Explain what is Event-Driven architecture and how it improves performance? </b></summary><br>
+
+**Event-Driven Architecture (EDA)** is a software design pattern that revolves around the production, detection, and consumption of events. In this architecture, the flow of program execution is determined by events such as user actions, sensor outputs, or messages from other programs. It is widely used in distributed systems, microservices, and real-time applications. Below is a detailed explanation of EDA and how it improves performance.
+
+### **Key Concepts of Event-Driven Architecture:**
+
+1. **Events:**
+   - An event represents a significant change or action in the system. It could be anything from a user clicking a button to a new file being uploaded to a server. These events are produced by "event producers" and detected by "event consumers."
+   
+2. **Event Producers:**
+   - Event producers are components that detect changes in state or actions and generate events to notify other parts of the system. For example, in an e-commerce system, an order placement could be an event generated by the order service.
+
+3. **Event Consumers:**
+   - Event consumers are components that respond to the events produced by event producers. For example, in response to an order event, a payment service might be triggered to process the payment.
+
+4. **Event Brokers:**
+   - In many systems, events are passed through an event broker or messaging system (like Apache Kafka, RabbitMQ, or AWS SNS/SQS), which acts as an intermediary between producers and consumers. This enables decoupling of components and more scalable architectures.
+
+### **How Event-Driven Architecture Improves Performance:**
+
+1. **Decoupling Components:**
+   - EDA decouples the components of the system, allowing them to operate independently. Producers do not need to know about the consumers, and vice versa. This loose coupling improves flexibility and scalability, as components can be updated, replaced, or scaled independently without impacting others.
+
+2. **Asynchronous Processing:**
+   - By enabling asynchronous communication between services, EDA allows the system to handle tasks in the background, without blocking the main application flow. For example, instead of waiting for a file upload to complete before processing other tasks, the system can generate an event when the upload starts and continue processing. This non-blocking nature improves responsiveness and throughput.
+
+3. **Scalability:**
+   - Event-driven systems are highly scalable since they allow horizontal scaling of both event producers and consumers. As the volume of events grows, more instances of the event consumers can be spun up to handle the load. This makes EDA suitable for high-traffic environments or systems with bursty traffic patterns.
+
+4. **Real-Time Processing:**
+   - EDA is ideal for real-time systems, such as IoT platforms or financial trading applications, where events need to be processed as they happen. Real-time event processing allows the system to respond to events immediately, reducing latency and improving performance for time-sensitive operations.
+
+5. **Resilience and Fault Tolerance:**
+   - EDA can improve the fault tolerance of a system by allowing components to fail independently without bringing down the entire system. Event brokers often have mechanisms for retrying failed event deliveries, and the asynchronous nature of EDA ensures that even if one component is temporarily unavailable, others can continue functioning.
+
+6. **Efficient Resource Utilization:**
+   - With EDA, resources are allocated on demand. Components only consume resources when processing events, which can lead to better resource utilization. Unlike synchronous architectures, which may involve idle waiting, event-driven components work more efficiently by acting only when triggered by an event.
+
+### **Conclusion:**
+Event-Driven Architecture (EDA) enhances performance by decoupling system components, enabling asynchronous and scalable processing, and optimizing resource utilization. It is particularly well-suited for distributed and real-time systems that need to handle high loads, provide low latency, and be resilient to failures. EDA allows systems to scale efficiently and respond dynamically to events as they occur, leading to better overall system performance.
 
 </details>
+
 
 <details>
 <summary><b>An application encounters some performance issues. You should to find the code we have to optimize. How to profile app in Linux environment?</b></summary><br>
@@ -5963,12 +7152,53 @@ Useful resources:
 
 </details>
 
-<details>
-<summary><b>You're on a security conference. Members debating about putting up the OpenBSD firewall on the core of the network. Go to the podium and express your opinion about this solution. What are the pros/cons and why? ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>You're on a security conference. Members debating about putting up the OpenBSD firewall on the core of the network. Go to the podium and express your opinion about this solution. What are the pros/cons and why? </b></summary><br>
+
+Implementing an OpenBSD firewall at the core of a network can be a solid security solution due to OpenBSD’s reputation for being one of the most secure and rigorously tested operating systems. However, it also presents specific challenges that need to be addressed when considering it for a critical network role. Here are my views on this topic:
+
+### **Pros of Using an OpenBSD Firewall:**
+
+1. **Security by Design:**
+   - **OpenBSD** is known for its security-focused development. The operating system is built with the principle of secure defaults and minimalism. Over the years, it has undergone rigorous code audits and is widely regarded as one of the most secure operating systems in existence. This makes OpenBSD a compelling choice for a firewall at the core of a network.
+
+2. **Built-In Packet Filter (PF):**
+   - **PF (Packet Filter)** is OpenBSD’s native firewall and network address translation (NAT) tool. PF is well-documented, highly flexible, and provides features like traffic shaping, load balancing, and real-time packet filtering, all of which are essential for controlling core network traffic.
+
+3. **Minimal Attack Surface:**
+   - OpenBSD follows the “secure by default” principle, meaning unnecessary services and features are disabled by default, reducing the attack surface. OpenBSD also employs strong memory protection techniques, including W^X (write xor execute) and ASLR (Address Space Layout Randomization), to prevent exploitation.
+
+4. **Proactive Security Features:**
+   - OpenBSD includes a wide array of built-in security measures such as **chroot**, **pledge**, and **unveil**, which further isolate and protect services from potential exploits. This proactive security focus makes OpenBSD a robust platform for a firewall, as it hardens the system against potential threats.
+
+5. **Stability and Reliability:**
+   - OpenBSD has a strong reputation for stability and reliability. In environments where uptime is critical, such as in core network infrastructure, OpenBSD can provide consistent performance without frequent reboots or crashes.
+
+### **Cons of Using an OpenBSD Firewall:**
+
+1. **Limited Enterprise Support:**
+   - **Lack of Commercial Support:** OpenBSD does not have the same level of commercial support as other firewall solutions such as Cisco ASA, Fortinet, or Palo Alto Networks. Enterprises that require dedicated support, SLAs, or professional services may find this a drawback.
+   
+2. **Steep Learning Curve:**
+   - **Configuration Complexity:** PF’s flexibility comes with a learning curve. Administrators who are not familiar with OpenBSD or PF might face challenges in configuring and maintaining the firewall, especially in complex network environments. Adequate training and expertise are essential to leverage the full potential of OpenBSD in a core firewall role.
+
+3. **Scalability Concerns:**
+   - **Performance Limits:** While OpenBSD is secure and stable, it may not scale as efficiently as some dedicated enterprise-grade firewall appliances in very high-traffic environments. This could be a limiting factor when the core of the network needs to handle large volumes of traffic with low latency.
+   
+4. **Lack of GUI Management Tools:**
+   - **No Native GUI:** OpenBSD’s PF does not include a native graphical interface for configuration or monitoring, which can be a downside for organizations that prefer GUI-based management. All configurations are done via command-line tools and configuration files, which may slow down administrative tasks for those not comfortable with CLI environments.
+
+5. **Community-Driven Updates:**
+   - **Patches and Updates:** OpenBSD is community-driven, and although the project is known for its reliability, it may not release patches or updates as quickly as commercially supported firewalls in response to emerging threats.
+
+### **Conclusion:**
+An OpenBSD firewall at the core of the network can be an excellent choice for organizations that prioritize security, stability, and a minimal attack surface. OpenBSD's PF is a powerful and flexible packet filter that, when configured correctly, can provide high levels of control over network traffic.
+
+However, this solution requires skilled administrators due to the complexity of managing and configuring OpenBSD and PF. Moreover, potential scalability concerns and the lack of commercial support make it less suitable for very large enterprise environments. It is best suited for organizations that have the in-house expertise to manage it and require strong security but do not necessarily need the extensive feature set or commercial support of enterprise-grade firewalls.
 
 </details>
+
 
 <details>
 <summary><b>Is there a way to allow multiple cross-domains using the Access-Control-Allow-Origin header in Nginx?</b></summary><br>
@@ -6267,20 +7497,160 @@ Useful resources:
 
 </details>
 
-<details>
-<summary><b>You have a lot of sockets, hanging in <code>TIME_WAIT</code>. Your http service behind proxy serve a lot of small http requests. How to check and reduce <code>TIME_WAIT</code> sockets? ***</b></summary><br>
 
-To be completed.
+<details>
+<summary><b>You have a lot of sockets, hanging in <code>TIME_WAIT</code>. Your http service behind proxy serve a lot of small http requests. How to check and reduce <code>TIME_WAIT</code> sockets? </b></summary><br>
+
+The `TIME_WAIT` state is a normal part of the TCP connection lifecycle, representing the time a connection must wait after closing to ensure that any delayed packets in the network are not misinterpreted as part of a new connection. However, when your HTTP service handles a high volume of small requests, a large number of sockets in `TIME_WAIT` can exhaust system resources and degrade performance. Here's how you can check and reduce `TIME_WAIT` sockets.
+
+### **Step 1: Checking for TIME_WAIT Sockets**
+
+You can check the number of sockets in the `TIME_WAIT` state using several tools:
+
+1. **Using `netstat`:**
+   ```bash
+   netstat -an | grep TIME_WAIT | wc -l
+   ```
+   This command will show the total number of sockets in the `TIME_WAIT` state.
+
+2. **Using `ss`:**
+   ```bash
+   ss -s
+   ```
+   This provides a summary of socket states, including the count of `TIME_WAIT` sockets.
+
+3. **Using `/proc/net/tcp`:**
+   ```bash
+   cat /proc/net/tcp | grep -i time_wait | wc -l
+   ```
+   This checks the kernel's internal representation of TCP connections and counts the number of `TIME_WAIT` sockets.
+
+### **Step 2: Reducing the Number of TIME_WAIT Sockets**
+
+To reduce the number of `TIME_WAIT` sockets, several techniques can be used:
+
+#### **1. Adjust TCP Socket Options**
+
+You can tune the kernel’s TCP parameters to reduce the duration of the `TIME_WAIT` state or allow faster reuse of sockets.
+
+- **Enable TCP reuse and recycling:**
+   - `tcp_tw_reuse`: Allows the reuse of `TIME_WAIT` sockets for new connections when it is safe to do so.
+   - `tcp_tw_recycle`: Enables faster recycling of `TIME_WAIT` sockets (not recommended for systems behind NAT as it can cause issues).
+   
+   - Set these options using `sysctl`:
+     ```bash
+     sysctl -w net.ipv4.tcp_tw_reuse=1
+     sysctl -w net.ipv4.tcp_tw_recycle=1
+     ```
+     To make these changes persistent, add them to `/etc/sysctl.conf`:
+     ```bash
+     net.ipv4.tcp_tw_reuse = 1
+     net.ipv4.tcp_tw_recycle = 1
+     ```
+
+   **Note:** Be cautious when enabling `tcp_tw_recycle` as it can lead to connectivity issues in some environments, especially for clients behind NAT.
+
+- **Reduce `TIME_WAIT` duration (tcp_fin_timeout):**
+   - You can reduce the `TIME_WAIT` duration by adjusting `tcp_fin_timeout`. This controls the length of time the kernel waits before closing a connection in `TIME_WAIT`.
+     ```bash
+     sysctl -w net.ipv4.tcp_fin_timeout=30
+     ```
+     This reduces the timeout from its default (typically 60 seconds) to 30 seconds.
+
+#### **2. Use HTTP Keep-Alive**
+
+If your HTTP service is handling many small requests, enabling **HTTP keep-alive** can significantly reduce the number of connections that enter the `TIME_WAIT` state. Keep-alive allows multiple requests to be sent over a single TCP connection, reducing the overhead of opening and closing connections.
+
+- **Configure Keep-Alive in Apache or Nginx:**
+   - In Apache:
+     ```apache
+     KeepAlive On
+     MaxKeepAliveRequests 100
+     KeepAliveTimeout 5
+     ```
+   - In Nginx:
+     ```nginx
+     keepalive_timeout 65;
+     keepalive_requests 100;
+     ```
+
+#### **3. Increase Available Socket Range**
+
+If your service is exhausting the available sockets due to a high number of `TIME_WAIT` connections, consider increasing the ephemeral port range, which is the range of ports the system uses for outbound connections.
+
+- **Set a wider range of ephemeral ports:**
+   ```bash
+   sysctl -w net.ipv4.ip_local_port_range="1024 65535"
+   ```
+   This allows a larger range of ports to be used for outgoing connections, reducing the chance of port exhaustion.
+
+### **Conclusion**
+
+Reducing the number of `TIME_WAIT` sockets involves a combination of kernel tuning, enabling HTTP keep-alive, and optimizing network parameters. Careful configuration of `tcp_tw_reuse`, adjusting the `TIME_WAIT` duration, and using keep-alive effectively can help reduce socket exhaustion, improving the performance of your HTTP service behind a proxy.
 
 Useful resources:
-
-- [How to reduce number of sockets in TIME_WAIT?](https://serverfault.com/questions/212093/how-to-reduce-number-of-sockets-in-time-wait)
+- [How to reduce the number of sockets in TIME_WAIT?](https://serverfault.com/questions/212093/how-to-reduce-number-of-sockets-in-time-wait)
 
 </details>
+
+
 
 <details>
-<summary><b>How do <code>SO_REUSEADDR</code> and <code>SO_REUSEPORT</code> differ? Explain all socket implementations. ***</b></summary><br>
+<summary><b>How do <code>SO_REUSEADDR</code> and <code>SO_REUSEPORT</code> differ? Explain all socket implementations. </b></summary><br>
 
-To be completed.
+The `SO_REUSEADDR` and `SO_REUSEPORT` socket options are used in network programming to allow multiple sockets to bind to the same port under certain conditions. While they might sound similar, they serve different purposes and have distinct behaviors. Below is a detailed explanation of both options, including their implementations across various systems.
+
+### **SO_REUSEADDR**
+
+**Purpose:**
+- The `SO_REUSEADDR` option allows a socket to forcibly bind to a port in `TIME_WAIT` state, which is normally not allowed. This is particularly useful when a server needs to be restarted and it needs to bind to the same port it was using before.
+
+**Behavior:**
+- **On Most Unix Systems:** This option allows multiple sockets to bind to the same port, provided that they all set `SO_REUSEADDR` before binding. This is commonly used to avoid the "Address already in use" error when restarting servers.
+- **Use Case:** It’s primarily used to quickly restart a server or service without having to wait for the `TIME_WAIT` state to expire on a previously bound port.
+
+**Implementation:**
+- When `SO_REUSEADDR` is set, the kernel allows a new socket to bind to a port even if the port is in the `TIME_WAIT` state. However, it does not allow multiple active sockets to bind to the same IP/port pair unless they all specify `SO_REUSEADDR` and are binding with the same IP address.
+
+```c
+int optval = 1;
+setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
+```
+
+### **SO_REUSEPORT**
+
+**Purpose:**
+- The `SO_REUSEPORT` option allows multiple sockets on the same host to bind to the same port number. This option can be useful for load balancing incoming connections across multiple threads or processes.
+
+**Behavior:**
+- **On Linux (Kernel 3.9 and later):** `SO_REUSEPORT` allows multiple sockets to bind to the same port, and the kernel distributes incoming connections across these sockets (usually in a round-robin manner). This can significantly improve performance in multi-threaded or multi-process server applications by distributing the load among available sockets.
+- **Use Case:** It is commonly used in high-performance network applications, such as web servers, to distribute incoming connections across multiple worker processes or threads.
+
+**Implementation:**
+- When `SO_REUSEPORT` is set, it allows multiple sockets to be bound to the same IP address and port number. Incoming connections are load-balanced across all the sockets bound with this option.
+
+```c
+int optval = 1;
+setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &optval, sizeof(optval));
+```
+
+### **Differences Between SO_REUSEADDR and SO_REUSEPORT**
+
+1. **Functionality:**
+   - `SO_REUSEADDR`: Allows binding to an address that is in `TIME_WAIT` state or already bound by another socket that has set this option.
+   - `SO_REUSEPORT`: Allows multiple sockets to listen on the same IP/port combination simultaneously and share incoming connections.
+
+2. **Use Cases:**
+   - `SO_REUSEADDR`: Useful for restarting servers quickly, avoiding port conflicts during bind.
+   - `SO_REUSEPORT`: Useful for improving performance by load-balancing incoming connections across multiple sockets.
+
+3. **Portability:**
+   - `SO_REUSEADDR` is widely supported across different operating systems, including most Unix-like systems and Windows.
+   - `SO_REUSEPORT` is more recent and primarily supported on Linux (starting with kernel 3.9) and some BSD systems. It is not as widely supported on other operating systems.
+
+### **Conclusion**
+
+`SO_REUSEADDR` and `SO_REUSEPORT` are powerful socket options that serve different purposes in network programming. `SO_REUSEADDR` is useful for handling port binding in situations where ports might be in a `TIME_WAIT` state, while `SO_REUSEPORT` is ideal for distributing incoming connections across multiple processes or threads to achieve load balancing and improve performance. Understanding these options and when to use them is essential for building robust and scalable network applications.
 
 </details>
+
